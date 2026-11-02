@@ -3,102 +3,132 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Fit Bounty: does this match?</title>
-<meta name="theme-color" content="#16142a">
+<title>Fit Bounty: does it match?</title>
+<meta name="theme-color" content="#0a0a0c">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Fit Bounty">
-<meta name="description" content="Snap what you own, see if the shades match, and get dressed fast. Photos stay on your phone.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316142a'/%3E%3Cpath d='M32 16a6 6 0 1 1 6 6c-3 1-6 3-6 6v2L12 44h40L32 30' fill='none' stroke='%23ff7a59' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="One photo of your outfit. Exact shades. An honest answer: does it match? Photos stay on your phone.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0c'/%3E%3Ccircle cx='24' cy='32' r='14' fill='%23c6ff3d'/%3E%3Ccircle cx='40' cy='32' r='14' fill='%23ff4d8d' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="manifest" id="mf">
 <style>
-:root{--ink:#16142a;--ink2:#4b4865;--mut:#8a87a3;--bg:#f6f4f0;--card:#fff;--acc:#ff7a59;--acc2:#2f2a5a;--ok:#1f9d6b;--mid:#e0a106;--bad:#d64545;--line:#ebe7e0;--r:18px}
+:root{--bg:#0a0a0c;--s1:#141418;--s2:#1d1d23;--line:#2a2a32;--tx:#fff;--mut:#a3a3ad;--acc:#c6ff3d;--acc-ink:#0a0a0c;--ok:#2ee66b;--mid:#ffc93c;--bad:#ff4d5e;--r:20px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);background:#e9e5df}
-body{display:flex;justify-content:center;align-items:center}
-#phone{width:100%;max-width:430px;height:100%;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column}
-@media (min-width:600px){#phone{height:min(880px,calc(100vh - 40px));border-radius:42px;box-shadow:0 30px 80px rgba(22,20,42,.25),0 0 0 10px #16142a}}
-header{padding:14px 18px 8px;display:flex;align-items:center;gap:10px}
-header .back{border:0;background:#fff;border-radius:50%;width:36px;height:36px;font-size:18px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer;display:none}
-header h1{font-size:19px;margin:0;letter-spacing:-.2px}
-header .wt{font-size:10px;color:var(--mut);background:#fff;border-radius:99px;padding:2px 8px;margin-left:auto}
-main{flex:1;overflow-y:auto;padding:4px 16px 96px}
-nav{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);display:flex;border-top:1px solid var(--line);padding:6px 4px calc(8px + env(safe-area-inset-bottom))}
-nav button{flex:1;border:0;background:none;font-size:11px;color:var(--mut);padding:6px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+html,body{margin:0;height:100%;background:#000;color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{display:flex;justify-content:center}
+#phone{width:100%;max-width:440px;height:100%;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column}
+@media (min-width:640px){body{align-items:center;background:#111}#phone{height:min(900px,calc(100vh - 40px));border-radius:44px;box-shadow:0 0 0 10px #222,0 40px 90px rgba(0,0,0,.6)}}
+header{padding:calc(12px + env(safe-area-inset-top)) 18px 8px;display:flex;align-items:center;gap:10px}
+header .back{border:0;background:var(--s2);color:var(--tx);border-radius:50%;width:38px;height:38px;font-size:20px;cursor:pointer;display:none}
+header h1{font-size:18px;margin:0;font-weight:800;letter-spacing:-.3px}
+header .logo{display:inline-flex;gap:0;margin-right:2px}header .logo i{width:16px;height:16px;border-radius:50%;display:block}header .logo i:first-child{background:var(--acc)}header .logo i:last-child{background:#ff4d8d;margin-left:-6px;opacity:.9}
+header .wt{font-size:10px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:2px 8px;margin-left:auto}
+main{flex:1;overflow-y:auto;padding:4px 16px 110px;-webkit-overflow-scrolling:touch}
+nav{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,12,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;border-top:1px solid var(--line);padding:6px 4px calc(8px + env(safe-area-inset-bottom));z-index:5}
+nav button{flex:1;border:0;background:none;font-size:11px;color:var(--mut);padding:6px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font-weight:600}
 nav button b{font-size:20px;line-height:1}
-nav button.on{color:var(--ink);font-weight:600}
-.card{background:var(--card);border-radius:var(--r);padding:16px;margin:12px 0;box-shadow:0 1px 2px rgba(22,20,42,.05)}
-.hero{background:linear-gradient(135deg,#2f2a5a,#16142a);color:#fff;border-radius:24px;padding:22px 20px;margin:8px 0 12px;cursor:pointer;border:0;width:100%;text-align:left;display:block}
-.hero .big{font-size:26px;font-weight:750;letter-spacing:-.5px;margin:6px 0 4px}
-.hero .sub{opacity:.8;font-size:14px}
-.hero .cam{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--acc);color:#fff;border-radius:99px;padding:12px 18px;font-weight:700;font-size:16px}
-.tile{display:flex;gap:12px;align-items:center;background:#fff;border-radius:var(--r);padding:14px 16px;margin:10px 0;cursor:pointer;border:0;width:100%;text-align:left;font-size:15px;color:var(--ink)}
-.tile .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:#f1eefb;flex:none}
-.tile small{display:block;color:var(--mut);font-size:12.5px;margin-top:2px}
-.btn{border:0;border-radius:14px;padding:13px 16px;font-size:15px;font-weight:650;cursor:pointer;background:var(--ink);color:#fff;width:100%}
-.btn.acc{background:var(--acc)}.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}.btn.sm{width:auto;padding:8px 12px;font-size:13px;border-radius:11px}
-.btn.danger{background:#fff;color:var(--bad);border:1.5px solid #f2c9c9}
+nav button.on{color:var(--acc)}
+h2.big{font-size:40px;line-height:1.02;letter-spacing:-1.5px;font-weight:900;margin:18px 0 8px}
+h2.big em{font-style:normal;color:var(--acc)}
+.lede{color:var(--mut);font-size:16px;line-height:1.4;margin:0 0 18px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:18px;padding:17px 18px;font-size:17px;font-weight:800;cursor:pointer;background:var(--s2);color:var(--tx);width:100%;margin:10px 0;letter-spacing:-.2px}
+.btn.acc{background:var(--acc);color:var(--acc-ink)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line)}
+.btn.sm{width:auto;display:inline-flex;padding:10px 14px;font-size:14px;border-radius:13px;margin:4px 0}
+.btn.danger{background:transparent;color:var(--bad);border:1.5px solid #4a1f25}
+.card{background:var(--s1);border-radius:var(--r);padding:16px;margin:12px 0;border:1px solid var(--line)}
+.note{font-size:13px;color:var(--mut);line-height:1.45}
 .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
-.chip{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:6px 11px;font-size:13px;cursor:pointer;color:var(--ink2)}
-.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.piece{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:start}
-.piece canvas{width:118px;height:150px;border-radius:14px;object-fit:cover;background:#eee;touch-action:manipulation;cursor:crosshair}
-.sw{width:30px;height:30px;border-radius:9px;border:1px solid rgba(0,0,0,.08);flex:none}
-.shade{font-weight:700;font-size:16px;margin:0 0 2px;text-transform:capitalize}
-.meta{font-size:12.5px;color:var(--ink2);line-height:1.45}
-.verdict{display:flex;align-items:center;gap:12px}
-.badge{font-weight:800;font-size:15px;letter-spacing:.6px;border-radius:12px;padding:8px 12px;color:#fff}
-.badge.match{background:var(--ok)}.badge.works{background:var(--mid)}.badge.clash{background:var(--bad)}
-.why{font-size:16px;font-weight:600;line-height:1.35;margin:12px 0 6px}
-ul.r{margin:6px 0;padding-left:18px;font-size:13.5px;color:var(--ink2);line-height:1.5}
-.tip{background:#fff5ef;border-radius:14px;padding:11px 13px;font-size:14px;line-height:1.4;margin-top:10px}
-.note{font-size:12px;color:var(--mut);line-height:1.45}
-.swrow{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
-.swrow div{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--ink2);width:64px;text-align:center;gap:4px}
-.swrow .sw{width:44px;height:44px;border-radius:12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chip{border:1.5px solid var(--line);background:var(--s2);color:var(--tx);border-radius:99px;padding:8px 13px;font-size:14px;font-weight:650;cursor:pointer;user-select:none}
+.chip.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.howto div{background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:12px 10px;font-size:12.5px;color:var(--mut);line-height:1.35}
+.howto b{display:block;color:var(--tx);font-size:22px;margin-bottom:4px}
+.samples{display:flex;gap:10px;margin-top:6px}
+.samples button{flex:1;border:1px solid var(--line);background:var(--s1);border-radius:16px;padding:0;overflow:hidden;cursor:pointer;color:var(--tx);font-size:12px;font-weight:700}
+.samples img{width:100%;height:120px;object-fit:cover;display:block}
+.samples span{display:block;padding:7px 4px}
+/* scan */
+.stage{position:relative;border-radius:22px;overflow:hidden;background:#000;margin-top:4px;touch-action:manipulation}
+.stage{display:flex;justify-content:center}.stage canvas{display:block;max-width:100%;max-height:50vh;cursor:crosshair}
+.stage .busy{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);font-weight:800;font-size:16px;gap:10px}
+.spin{width:22px;height:22px;border-radius:50%;border:3px solid rgba(255,255,255,.25);border-top-color:var(--acc);animation:sp 0.8s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.thumbs{display:flex;gap:8px;margin-top:8px}
+.thumbs img{width:54px;height:54px;object-fit:cover;border-radius:12px;border:2px solid transparent;cursor:pointer}
+.thumbs img.on{border-color:var(--acc)}
+.fixbar{margin-top:10px;background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:10px 12px}
+.fixbar .hint{font-size:13.5px;font-weight:700;margin:0 0 6px}
+.fixbar .chip{padding:7px 11px;font-size:13px}
+.verdict{border-radius:26px;padding:20px 20px 18px;margin:4px 0 12px;color:#0a0a0c}
+.verdict.match{background:var(--ok)}.verdict.works{background:var(--mid)}.verdict.clash{background:var(--bad);color:#fff}.verdict.need{background:var(--s2);color:var(--tx);border:1px solid var(--line)}
+.verdict .vw{font-size:46px;font-weight:900;letter-spacing:-1.8px;line-height:1}
+.verdict .vs{font-size:12px;font-weight:800;letter-spacing:1px;opacity:.7;margin-bottom:6px;text-transform:uppercase}
+.verdict .vy{font-size:18px;font-weight:700;line-height:1.3;margin-top:10px;letter-spacing:-.2px}
+.verdict .meter{height:8px;border-radius:99px;background:rgba(0,0,0,.18);margin-top:14px;overflow:hidden}.verdict .meter i{display:block;height:100%;background:currentColor;border-radius:99px}
+.pc{display:grid;grid-template-columns:62px 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.pc:last-child{border-bottom:0}
+.pc .sw{width:62px;height:62px;border-radius:16px;border:1px solid rgba(255,255,255,.15);position:relative}
+.pc .sw b{position:absolute;top:-7px;left:-7px;width:24px;height:24px;border-radius:50%;font-size:12px;display:grid;place-items:center;color:#000;border:2px solid var(--bg)}
+.pc .nm{font-size:17px;font-weight:800;text-transform:capitalize;letter-spacing:-.2px}
+.pc .rl{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--mut);text-transform:uppercase}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}.tags span{font-size:11.5px;background:var(--s2);border-radius:8px;padding:3px 7px;color:#d8d8de}
+.sec{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--mut);margin:0 0 8px}
+ul.why{margin:0;padding:0;list-style:none}
+ul.why li{position:relative;padding:7px 0 7px 26px;font-size:15px;line-height:1.4;color:#e9e9ee}
+ul.why li:before{position:absolute;left:0;top:7px;font-weight:900}
+ul.why li.g:before{content:'✓';color:var(--ok)}ul.why li.b:before{content:'!';color:var(--bad);left:5px}ul.why li.i:before{content:'•';color:var(--mut);left:4px}
+.tip{background:#1b2208;border:1px solid #34410f;border-radius:18px;padding:14px 16px;margin:12px 0}
+.tip .sec{color:var(--acc)}
+.tip p{margin:6px 0;font-size:15px;line-height:1.4}
+.swrow{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.swrow div{display:flex;flex-direction:column;align-items:center;font-size:11.5px;color:#d8d8de;width:66px;text-align:center;gap:5px;text-transform:capitalize}
+.swrow .sw{width:48px;height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.15)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.grid .it{position:relative;border-radius:14px;overflow:hidden;background:#fff}
+.grid .it{position:relative;border-radius:16px;overflow:hidden;background:var(--s1);border:1px solid var(--line)}
 .grid .it img{width:100%;height:110px;object-fit:cover;display:block}
-.grid .it .lab{display:flex;gap:6px;align-items:center;padding:6px;font-size:11px;text-transform:capitalize}
-.grid .it .lab .sw{width:14px;height:14px;border-radius:4px}
-.grid .it .x{position:absolute;top:4px;right:4px;border:0;background:rgba(255,255,255,.9);border-radius:50%;width:24px;height:24px;cursor:pointer}
-.outfit{border:1.5px solid var(--line);border-radius:16px;padding:12px;margin:10px 0;background:#fff}
+.grid .it .lab{display:flex;gap:6px;align-items:center;padding:6px 7px;font-size:11px;text-transform:capitalize}
+.grid .it .lab .sw{width:14px;height:14px;border-radius:4px;flex:none}
+.grid .it .x{position:absolute;top:5px;right:5px;border:0;background:rgba(0,0,0,.7);color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer}
+.outfit{border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0;background:var(--s1)}
 .outfit .pcs{display:flex;gap:6px;margin:8px 0}
 .outfit .pcs img{width:64px;height:76px;object-fit:cover;border-radius:10px}
-.rank{font-size:12px;font-weight:800;color:var(--acc)}
-.modal{position:absolute;inset:0;background:rgba(22,20,42,.55);display:none;align-items:flex-end;z-index:20}
-.modal.on{display:flex}
-.sheet{background:#fff;border-radius:24px 24px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom));width:100%}
-.sheet h3{margin:0 0 8px}
-label.f{display:block;font-size:13px;color:var(--ink2);margin:8px 0 3px}
-input.n{width:100%;padding:11px;border:1.5px solid var(--line);border-radius:12px;font-size:15px}
-.soon{border:2px dashed #d9d3f0;background:#faf9ff}
-.mode{font-size:12px;background:#16142a;color:#fff;border-radius:8px;padding:4px 8px;display:none}
-.toast{position:absolute;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;z-index:30;white-space:nowrap}
+.rank{font-size:12px;font-weight:900;color:var(--acc);letter-spacing:.5px;text-transform:uppercase}
+.badge{font-weight:900;font-size:12px;letter-spacing:.6px;border-radius:10px;padding:5px 9px;color:#0a0a0c}
+.badge.match{background:var(--ok)}.badge.works{background:var(--mid)}.badge.clash{background:var(--bad);color:#fff}
+.sheet-bg{position:absolute;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-end;z-index:20}
+.sheet-bg.on{display:flex}
+.sheet{background:var(--s1);border-top:1px solid var(--line);border-radius:26px 26px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));width:100%}
+.sheet h3{margin:0 0 6px;font-size:20px;font-weight:900}
+label.f{display:block;font-size:13px;color:var(--mut);margin:8px 0 3px}
+input.n{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;background:var(--s2);color:var(--tx)}
+.toast{position:absolute;left:50%;bottom:104px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:11px 15px;border-radius:14px;font-size:14px;font-weight:700;opacity:0;transition:.25s;pointer-events:none;z-index:30;max-width:90%;text-align:center}
 .toast.on{opacity:1}
 .hidden{display:none!important}
+.tip b,.card b{color:inherit}
 </style>
 </head>
 <body>
 <div id="phone">
-  <header><button class="back" id="back" aria-label="Back">‹</button><h1 id="title">Fit Bounty</h1><span class="wt">working title</span></header>
+  <header><button class="back" id="back" aria-label="Back">‹</button><span class="logo" aria-hidden="true"><i></i><i></i></span><h1 id="title">Fit Bounty</h1><span class="wt">working title</span></header>
   <main id="main"></main>
   <nav id="nav">
-    <button data-go="home" class="on"><b>⌂</b>Home</button>
-    <button data-go="check"><b>◐</b>Match</button>
-    <button data-go="dress"><b>✦</b>Dress me</button>
+    <button data-go="home" class="on"><b>◉</b>Scan</button>
     <button data-go="closet"><b>▦</b>Closet</button>
+    <button data-go="dress"><b>✦</b>Dress me</button>
     <button data-go="me"><b>☺</b>My colors</button>
   </nav>
-  <div class="modal" id="consent"><div class="sheet">
-    <h3>Your photos stay on this phone</h3>
-    <p class="note" style="font-size:14px;color:var(--ink2)">Fit Bounty reads colors right here on your device. No photo is uploaded, nothing is used to train anything, and you can wipe everything with one tap in <b>My colors</b>. Public use is for 18+. Anyone younger should use it with a parent's OK.</p>
-    <button class="btn acc" id="consentOk">OK, open camera</button>
-    <button class="btn ghost" id="consentNo" style="margin-top:8px">Not now</button>
+  <div class="sheet-bg" id="srcSheet"><div class="sheet">
+    <h3 id="srcTitle">Add a photo</h3><p class="note" id="srcSub" style="margin:0 0 6px">Photos stay on this phone.</p>
+    <div id="roleRow" class="chips hidden"></div>
+    <button class="btn acc" id="srcCam">📷 Take a photo</button>
+    <button class="btn" id="srcLib">🖼 Choose from my photos</button>
+    <button class="btn ghost" id="srcNo">Cancel</button>
   </div></div>
   <div class="toast" id="toast"></div>
-  <input type="file" id="file" accept="image/*" capture="environment" class="hidden">
+  <input type="file" id="fileCam" accept="image/*" capture="environment" class="hidden">
+  <input type="file" id="fileLib" accept="image/*" class="hidden">
 </div>
 <script>
 'use strict';
@@ -157,6 +187,18 @@ function denimWash(L,C,spread){
   const depth=C<7?'neutral':L<39?'dark':L<52?'medium':'light';
   return{wash:w,depth,uneven:spread>3.2};
 }
+function denimWash(L,C,spread){
+  let w;
+  if(C<7) w=L<24?'black denim':'gray denim';
+  else if(L<22) w='dark indigo';
+  else if(L<30) w='rinse wash';
+  else if(L<39) w='dark wash';
+  else if(L<52) w='medium wash';
+  else if(L<63) w='light wash';
+  else w='faded light wash';
+  const depth=C<7?'neutral':L<39?'dark':L<52?'medium':'light';
+  return{wash:w,depth,uneven:spread>3.2};
+}
 function looksDenim(l){const{L,C,h}=lch(l);return (h>225&&h<295&&C>6&&C<45&&L>10&&L<80)}
 
 /* describe one piece from its LAB + patch spread */
@@ -184,231 +226,374 @@ function describe(lab,opts={}){
   return p;
 }
 
-/* ============== pair scoring ============== */
+/* ============== piece description (exact shade) ============== */
+function looksDenim(l,type){const{L,C,h}=lch(l);if(type!=='bottom'&&type!=='layer')return false;return h>200&&h<300&&C>=3&&C<48&&L>8&&L<82}
+function describe(lab,opts={}){
+  const {L,C,h}=lch(lab);
+  let best=null,bd=1e9;for(const s of SHADES){const d=de2000(lab,s.lab);if(d<bd){bd=d;best=s}}
+  const p={lab,L,C,h,hex:lab2hex(lab),type:opts.type||'top',denim:!!opts.denim,spread:opts.spread||0,pattern:opts.pattern||null,dName:bd};
+  if(p.denim){const dw=denimWash(L,C,p.spread);p.name=dw.wash+(p.type==='bottom'?' jeans':' denim');p.shade=dw.wash;p.fam='denim';p.kind='d';p.wash=dw;}
+  else{let nm=best.name;const dl=L-best.lab[0];if(bd>7&&best.kind!=='n'||bd>9){if(dl<-6)nm='deep '+nm;else if(dl>6)nm='light '+nm;else if(C<lch(best.lab).C-10)nm='muted '+nm}
+    nm=nm.replace('deep deep','deep').replace('light light','light');p.name=nm;p.shade=nm;p.fam=best.fam;p.kind=(C<7&&best.kind==='c')?'n':best.kind;}
+  let ut;
+  if(p.kind==='d') ut='cool';
+  else if(p.kind==='n'&&p.fam!=='navy'){ut=lab[2]>4?'warm':lab[2]<-2?'cool':'neutral'}
+  else if(WARM_FAM.has(p.fam)) ut='warm';
+  else if(COOL_FAM.has(p.fam)) ut='cool';
+  else { const piv=FAM_PIVOT[p.fam]??h; const rel=angTo(piv,270)-angTo(h,270);
+    ut=rel>3?'cool':rel<-3?'warm':(lab[2]>lab[1]*0.45?'warm':'cool'); }
+  p.under=ut;
+  p.depth=L<30?'deep':L<48?'medium-deep':L<66?'medium':'light';
+  p.sat=C<12?'muted':C<28?'soft':C<45?'medium':'bold';
+  p.neutral=p.kind!=='c';
+  p.bold=C>=45&&!p.neutral; p.quiet=C<24||p.neutral;
+  p.label=(p.kind==='c'?(ut==='neutral'?'':ut+' '):'')+p.name;
+  if(p.type==='shoes'&&!p.denim)p.label+=' shoes';
+  return p;
+}
+const cap=t=>t?t.charAt(0).toUpperCase()+t.slice(1):t;
+const DARKCOOL=d=>(d.fam==='navy'||d.fam==='black'||d.fam==='gray'&&d.L<40||d.kind==='d'&&d.L<35||d.fam==='blue'&&d.L<35);
+
+/* ============== pair scoring: exact shades, not just color names ============== */
 function scorePair(A,B){
-  let s=60;const why=[],good=[],bad=[];
-  const dL=Math.abs(A.L-B.L);const den=[A,B].find(p=>p.kind==='d'),oth=den===A?B:A;
-  const anyN=A.neutral||B.neutral,bothN=A.neutral&&B.neutral;
-  if(anyN){s+=12;}
-  if(den){s+=8;good.push(`Denim acts like a neutral, so ${den.shade} goes with almost anything.`)}
-  if(A.neutral&&!B.neutral||B.neutral&&!A.neutral){const c=A.neutral?B:A,n=A.neutral?A:B;good.push(`${cap(c.shade)} is the color; ${n.shade} is the quiet base.`)}
-  // blue-on-blue near miss (navy/blue tops vs denim, or navy vs denim)
-  if(den&&oth.kind!=='d'&&(oth.fam==='navy'||oth.fam==='blue')&&hdiff(A.h,B.h)<35){s-=18;bad.push(`${cap(oth.shade)} and ${den.shade} are both blue but not the same blue, so it can look like a near miss.`)}
-  let rel='';
-  if(!A.neutral&&!B.neutral){
-    const dh=hdiff(A.h,B.h);
-    if(dh<15){rel='tonal';s+=dL>=12?8:-6;(dL>=12?good:bad).push(dL>=12?'Same color family in two depths: a tonal look.':'Same color, same depth: no separation.')}
-    else if(dh<50){rel='analogous';if(A.bold&&B.bold&&dL<30){s-=38;bad.push(`${cap(A.shade)} and ${B.shade} are loud neighboring hues, so they fight each other.`)}else{s+=A.bold||B.bold?4:8;good.push('Neighboring hues blend easily.')}}
-    else if(dh<100){rel='offbeat';s-=(A.bold&&B.bold)?20:6;bad.push('These hues sit at an awkward distance on the color wheel.')}
-    else if(dh<150){rel='split';s+=(A.bold&&B.bold)?-10:2}
-    else{rel='complement';if(A.bold&&B.bold&&dL<20){s-=18;bad.push('Opposite colors, both loud and at the same depth: very busy.')}else{s+=8;good.push('Opposite colors make a bold, intentional contrast.')}}
+  let s=62;const good=[],bad=[];
+  const dE=de2000(A.lab,B.lab),dL=Math.abs(A.L-B.L);
+  const den=[A,B].find(p=>p.kind==='d'),oth=den===A?B:A,bothDen=A.kind==='d'&&B.kind==='d';
+  const anyN=A.neutral||B.neutral,bothN=A.neutral&&B.neutral,dh=hdiff(A.h,B.h);
+  let rel='';const shoe=A.type==='shoes'||B.type==='shoes';
+  // 1) exact same shade, or a near miss (the "almost matching" trap)
+  if(dE<3.5){rel='same';
+    if(bothN&&!bothDen){s+=14;good.push(`Same exact shade top to bottom: a clean one-color look.`)}
+    else if(bothDen){s-=20;bad.push('Same wash on top and bottom: double denim only works when the washes are clearly different.')}
+    else{s+=4;good.push(`Same exact ${A.shade} head to toe is a bold one-color look. It works if you mean it.`)}
+  } else {
+    const sameFam=(A.C>8&&B.C>8&&dh<28)||(A.C<=9&&B.C<=9)||(DARKCOOL(A)&&DARKCOOL(B));
+    if(!shoe&&sameFam&&dE<13&&dL<14&&!(bothN&&dL>=10)){rel='near';s-=24;
+      bad.push(`${cap(A.shade)} and ${B.shade} are close but not the same (shade gap ${dE.toFixed(0)}/100). Close-but-off reads like a mistake, not a choice.`)}
+    else if(bothDen&&!shoe){if(dL>=15){s+=2;good.push('Two clearly different washes, so double denim looks on purpose.')}else{s-=14;bad.push('The two washes are too close: double denim needs a clear light/dark gap.')}}
   }
-  // value contrast
+  if(den&&!bothDen&&rel!=='near'){s+=8;good.push(`Denim works like a neutral, so ${den.shade} goes with most colors.`)}
+  if(anyN&&rel!=='near'&&rel!=='same'){s+=10;if(A.neutral!==B.neutral){const c=A.neutral?B:A,n=A.neutral?A:B;if(n.kind!=='d')good.push(`${cap(c.shade)} is the color; ${n.shade} is the calm base.`)}}
+  // 2) hue relationship between two real colors
+  if(!A.neutral&&!B.neutral&&rel!=='same'&&rel!=='near'){
+    if(dh<15){rel='tonal';s+=dL>=12?8:-6;(dL>=12?good:bad).push(dL>=12?'Same color family in two clearly different depths: a tonal look.':'Same color family at the same depth: no separation.')}
+    else if(dh<50){rel='analogous';if(A.bold&&B.bold&&dL<30){s-=38;bad.push(`${cap(A.shade)} and ${B.shade} are two loud neighbor colors, so they fight for attention.`)}else{s+=A.bold||B.bold?4:8;good.push('Neighboring colors on the color wheel blend easily.')}}
+    else if(dh<100){rel='offbeat';s-=(A.bold&&B.bold)?20:6;bad.push('These two colors sit at an awkward distance on the color wheel.')}
+    else if(dh<150){rel='split';s+=(A.bold&&B.bold)?-10:3}
+    else{rel='complement';if(A.bold&&B.bold&&dL<20){s-=18;bad.push('Opposite colors, both loud and the same depth: very busy.')}else{s+=8;good.push('Opposite colors on the wheel make a bold, intentional contrast.')}}
+  }
+  // 3) light/dark contrast
   const deepDen=den&&!oth.neutral&&oth.L<42;
-  if(dL<6){s-=14;bad.push(`Low contrast: ${A.shade} and ${B.shade} are almost the same depth, so they blur into one block.`)}
-  else if(dL<12){s-=6;if(deepDen)good.push('Both are deep, so it reads rich and moody rather than crisp.');else bad.push(`Low contrast: ${A.shade} and ${B.shade} are close in depth${A.L<30&&B.L<30?', so from a distance they read as one dark block':', so it reads soft and a bit muddy'}.`)}
-  else if(dL<20){s+=2}
-  else if(dL<=40){s+=10;good.push('Good light/dark contrast, so each piece stands out.')}
-  else{s+=8;good.push('Strong light/dark contrast: crisp.')}
-  // chroma balance
-  if((A.bold&&B.quiet)||(B.bold&&A.quiet)){s+=6;good.push('One bold piece plus one quiet piece is the easy formula.')}
-  else if(A.bold&&B.bold){s-=8;}
-  // undertone
-  if(!A.neutral&&!B.neutral){ if(A.under===B.under&&A.under!=='neutral'){s+=6;good.push(`Both lean ${A.under}, so the undertones agree.`)} else if(A.under!==B.under&&A.under!=='neutral'&&B.under!=='neutral'&&rel!=='complement'){s-=8;bad.push(`${cap(A.shade)} leans ${A.under} but ${B.shade} leans ${B.under}: the undertones disagree.`)} }
-  else if(bothN&&A.under===B.under&&A.under==='warm'){s+=4;good.push('Both are warm earthy neutrals: calm and easy.')}
-  // denim + deep rich color
-  if(den&&!oth.neutral&&oth.L<42&&den.wash.depth!=='light'){s+=6}
-  if(den&&!oth.neutral&&oth.L<42){good.push(`Deep ${oth.shade} against ${den.shade} is a classic pairing.`)}
+  if(rel!=='same'&&rel!=='near'&&!shoe){
+    if(dL<6&&deepDen){s-=5;bad.push(`Both are deep (${Math.round(A.L)} vs ${Math.round(B.L)} on a 0–100 light scale): rich, but from far away they read as one dark block.`)}
+    else if(dL<6){s-=12;bad.push(`Almost the same depth (${Math.round(A.L)} vs ${Math.round(B.L)} on a 0–100 light scale), so they blur into one block.`)}
+    else if(dL<12){s-=5;if(deepDen)good.push('Both are deep, so it reads rich and moody rather than crisp.');else bad.push(`Low light/dark contrast${A.L<30&&B.L<30?': from a distance they read as one dark block':': it reads a bit muddy'}.`)}
+    else if(dL<20){s+=2}
+    else if(dL<=45){s+=10;good.push('Good light/dark contrast, so each piece stands out.')}
+    else{s+=8;good.push('Strong light/dark contrast: crisp and sharp.')}
+  }
+  // 4) loud + quiet balance
+  if((A.bold&&B.quiet)||(B.bold&&A.quiet)){s+=6;good.push('One bold piece plus one quiet piece is the easy winning formula.')}
+  else if(A.bold&&B.bold){s-=8}
+  // 5) undertones
+  if(!A.neutral&&!B.neutral&&rel!=='same'){if(A.under===B.under&&A.under!=='neutral'){s+=6;good.push(`Both lean ${A.under}, so the undertones agree.`)}else if(A.under!==B.under&&A.under!=='neutral'&&B.under!=='neutral'&&rel!=='complement'){s-=8;bad.push(`${cap(A.shade)} leans ${A.under} but ${B.shade} leans ${B.under}: the undertones disagree.`)}}
+  else if(bothN&&A.under==='warm'&&B.under==='warm'&&rel!=='near'){s+=4;good.push('Both are warm earthy neutrals: calm and easy.')}
+  else if(anyN&&!bothN&&!den){const n=A.neutral?A:B,c=A.neutral?B:A;if(n.under!=='neutral'&&c.under!=='neutral'&&n.under!==c.under&&n.C>6){s-=4;bad.push(`Small undertone gap: ${n.shade} is ${n.under}, ${c.shade} is ${c.under}.`)}}
+  if(deepDen&&den.wash.depth!=='light'){s+=6;good.push(`Deep ${oth.shade} with ${den.shade} is a classic pairing.`)}
   s=Math.max(0,Math.min(100,Math.round(s)));
   const verdict=s>=75?'match':s>=52?'works':'clash';
-  return{s,verdict,good,bad,dL,rel,den,oth};
+  return{s,verdict,good,bad,dL,dE,rel,den,oth};
 }
-const cap=t=>t.charAt(0).toUpperCase()+t.slice(1);
 function character(A,B,r){
   const den=r.den,o=r.oth;
+  if(r.rel==='near')return'a near miss: almost the same shade, but not quite';
+  if(r.rel==='same')return A.neutral?'one clean shade head to toe':'a bold one-color look';
   if(r.verdict==='clash'&&r.rel==='analogous')return'two loud colors fighting for attention';
   if(r.dL<12&&A.L<30&&B.L<30&&!den)return'dark and low contrast, so they read almost as one color';
-  if(r.dL<6)return'very close in depth, so they blur together';
-  if(den&&!o.neutral){if(den.wash.depth==='dark')return o.L<42?'rich, dressy-casual':'clean and sharp';if(den.wash.depth==='light')return'relaxed and laid back, softer than with dark denim';return'easy everyday classic'}
-  if(den&&o.neutral){if(o.fam==='navy'||o.fam==='blue')return'all-blue, slightly matchy';return den.wash.depth==='dark'?'clean, put-together casual':'easy weekend casual'}
+  if(den&&!o.neutral){if(den.wash.depth==='dark')return o.L<42?'rich, dressy-casual':'clean and sharp';if(den.wash.depth==='light')return'relaxed and laid back';return'an easy everyday classic'}
+  if(r.dL<6&&!(den&&!o.neutral))return'very close in depth, so they blur together';
+  if(den&&o.neutral){if(o.fam==='navy'||o.fam==='blue')return r.dL>25?'classic blue on blue, with real light/dark contrast':'all-blue, slightly matchy';return den.wash.depth==='dark'?'clean, put-together casual':'easy weekend casual'}
   if(A.neutral&&B.neutral){if(A.under==='warm'&&B.under==='warm')return'earthy and calm';return r.dL>30?'crisp and classic':'quiet and minimal'}
   if(r.rel==='complement')return'bold, intentional contrast';
-  if(r.rel==='tonal')return'tonal, one-color look';
+  if(r.rel==='tonal')return'a tonal, one-color-family look';
   return r.verdict==='match'?'balanced and easy':r.verdict==='works'?'fine, a little safe':'a hard pairing';
 }
-/* shades that would work (look for these in your closet) */
-function suggestFor(base,current,profile){
-  const STAPLE=new Set(['white','heather gray','black','charcoal','camel','cream','navy','olive','burgundy','forest green','mustard','rust','sky blue','blush','khaki','dusty rose','emerald','cobalt','sage','plum','terracotta','teal']);
-  const cands=SHADES.filter(s=>STAPLE.has(s.name)).map(s=>describe(s.lab,{type:current.type})).filter(c=>de2000(c.lab,current.lab)>12);
-  const scored=cands.map(c=>{let sc=scorePair(c,base).s;if(profile&&profile.palette){const pd=Math.min(...profile.palette.map(h=>de2000(c.lab,rgb2lab(...hex2rgb(h)))));if(pd<12)sc+=6}return{c,sc}}).sort((a,b)=>b.sc-a.sc);
-  const out=[];for(const x of scored){if(out.every(o=>de2000(o.c.lab,x.c.lab)>18&&o.c.fam!==x.c.fam))out.push(x);if(out.length===3)break}
+const STAPLES={top:['white','heather gray','black','navy','cream','charcoal','olive','burgundy','camel','sky blue','forest green','blush'],bottom:['black','charcoal','khaki','white','cream','navy','olive','camel'],shoes:['white','black','tan','cognac'],layer:['black','camel','charcoal','navy','olive','cream']};
+function stapleCands(type){const names=STAPLES[type]||STAPLES.top;const out=names.map(n=>SHADES.find(s=>s.name===n)).filter(Boolean).map(s=>describe(s.lab,{type}));
+  if(type==='bottom'){[['#2b3a55',0],['#4a6a94',0],['#8fa8c8',0]].forEach(([h])=>out.push(describe(rgb2lab(...hex2rgb(h)),{type:'bottom',denim:true})))}return out}
+function suggestFor(anchor,current,profile){
+  const cands=stapleCands(current.type).filter(c=>de2000(c.lab,current.lab)>12);
+  const scored=cands.map(c=>{let sc=scorePair(c,anchor).s;if(profile&&profile.palette&&current.type!=='bottom'){const pd=Math.min(...profile.palette.map(h=>de2000(c.lab,rgb2lab(...hex2rgb(h)))));if(pd<12)sc+=5}return{c,sc}}).sort((a,b)=>b.sc-a.sc);
+  const out=[];for(const x of scored){if(out.every(o=>de2000(o.c.lab,x.c.lab)>15&&o.c.name!==x.c.name))out.push(x);if(out.length===3)break}
   return out;
 }
 
-/* ============== image sampling ============== */
-function kmeans(pts,k=3,it=10){
-  const srt=[...pts].sort((a,b)=>a[0]-b[0]);let C=[.15,.5,.85].slice(0,k).map(q=>[...srt[Math.floor(q*(srt.length-1))]]);
-  let asg=new Array(pts.length).fill(0);
-  for(let t=0;t<it;t++){for(let i=0;i<pts.length;i++){let bi=0,bd=1e9;for(let j=0;j<k;j++){const d=(pts[i][0]-C[j][0])**2+(pts[i][1]-C[j][1])**2+(pts[i][2]-C[j][2])**2;if(d<bd){bd=d;bi=j}}asg[i]=bi}
-    const S=C.map(()=>[0,0,0,0]);pts.forEach((p,i)=>{const s=S[asg[i]];s[0]+=p[0];s[1]+=p[1];s[2]+=p[2];s[3]++});S.forEach((s,j)=>{if(s[3])C[j]=[s[0]/s[3],s[1]/s[3],s[2]/s[3]]})}
-  const n=C.map(()=>0);asg.forEach(a=>n[a]++);return C.map((c,j)=>({c,n:n[j]}));
+/* ============== photo analysis (all on this phone) ============== */
+const GRID=300;
+let segP=null,segFail=false;
+function loadSegmenter(){
+  if(segP)return segP;
+  const V='https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.2.0';
+  segP=Promise.race([(async()=>{const m=await import(V+'/vision_bundle.mjs');const fs=await m.FilesetResolver.forVisionTasks(V+'/wasm');
+    return await m.ImageSegmenter.createFromOptions(fs,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite',delegate:'CPU'},runningMode:'IMAGE',outputCategoryMask:true,outputConfidenceMasks:false})})(),
+    new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),15000))]).catch(e=>{segFail=true;console.warn('segmenter unavailable',e);return null});
+  return segP;
 }
-function wbPix(r,g,b,wb){if(!wb)return[r,g,b];return[unlin(lin(r)*wb[0]),unlin(lin(g)*wb[1]),unlin(lin(b)*wb[2])]}
-function samplePiece(img,pt,wb){
-  const cv=document.createElement('canvas'),S=240,sc=S/Math.max(img.width,img.height);cv.width=Math.round(img.width*sc);cv.height=Math.round(img.height*sc);
-  const x=cv.getContext('2d',{willReadFrequently:true});x.drawImage(img,0,0,cv.width,cv.height);const D=x.getImageData(0,0,cv.width,cv.height).data,w=cv.width,h=cv.height;
-  const at=(i,j)=>{const o=(j*w+i)*4;return rgb2lab(...wbPix(D[o],D[o+1],D[o+2],wb))};
-  // border = background estimate
-  const bpts=[];for(let i=0;i<w;i+=4){bpts.push(at(i,1),at(i,h-2))}for(let j=0;j<h;j+=4){bpts.push(at(1,j),at(w-2,j))}
-  const bg=bpts.reduce((a,p)=>[a[0]+p[0]/bpts.length,a[1]+p[1]/bpts.length,a[2]+p[2]/bpts.length],[0,0,0]);
-  const auto=!pt;const cx=(pt?pt.x:.5)*w,cy=(pt?pt.y:.5)*h,R=(auto?.24:.11)*Math.min(w,h);
-  const pts=[];for(let j=Math.max(0,cy-R|0);j<Math.min(h,cy+R);j+=1)for(let i=Math.max(0,cx-R|0);i<Math.min(w,cx+R);i+=1){if((i-cx)**2+(j-cy)**2<=R*R)pts.push(at(i,j))}
-  if(!pts.length)return null;
-  let cl=kmeans(pts,3).sort((a,b)=>b.n-a.n);
-  let pick=cl.find(c=>c.n>pts.length*.12&&de2000(c.c,bg)>10)||cl[0];
-  // refine: average of pixels close to chosen center
-  const near=pts.filter(p=>de2000(p,pick.c)<14);const lab=near.length>20?near.reduce((a,p)=>[a[0]+p[0]/near.length,a[1]+p[1]/near.length,a[2]+p[2]/near.length],[0,0,0]):pick.c;
-  // patch spread (wash variation): 3x3 patches across the region, keep pixels in the garment cluster
-  const pm=[];for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const px=cx+a*R*.6,py=cy+b*R*.6,rr=R*.28;let s=0,n=0;
-    for(let j=Math.max(0,py-rr|0);j<Math.min(h,py+rr);j++)for(let i=Math.max(0,px-rr|0);i<Math.min(w,px+rr);i++){const p=at(i,j);if(de2000(p,lab)<22){s+=p[0];n++}}if(n>8)pm.push(s/n)}
-  const mu=pm.reduce((a,v)=>a+v,0)/(pm.length||1);const spread=pm.length>2?Math.sqrt(pm.reduce((a,v)=>a+(v-mu)**2,0)/pm.length):0;
-  return{lab,spread,bg};
+function labF(r,g,b){const l=rgb2lab(r,g,b);return l}
+async function buildPhoto(dataURL){
+  const img=await loadImg(dataURL);
+  const sc=GRID/Math.max(img.width,img.height),w=Math.max(8,Math.round(img.width*sc)),h=Math.max(8,Math.round(img.height*sc));
+  const cv=document.createElement('canvas');cv.width=w;cv.height=h;const x=cv.getContext('2d',{willReadFrequently:true});x.drawImage(img,0,0,w,h);
+  const raw=x.getImageData(0,0,w,h).data;const N=w*h;
+  // light 3x3 blur to calm fabric texture
+  const sm=new Float32Array(N*3);
+  for(let j=0;j<h;j++)for(let i=0;i<w;i++){let r=0,g=0,b=0,n=0;for(let dj=-1;dj<=1;dj++){const y=j+dj;if(y<0||y>=h)continue;for(let di=-1;di<=1;di++){const xx=i+di;if(xx<0||xx>=w)continue;const o=(y*w+xx)*4;r+=raw[o];g+=raw[o+1];b+=raw[o+2];n++}}const k=(j*w+i)*3;sm[k]=r/n;sm[k+1]=g/n;sm[k+2]=b/n}
+  const ph={id:'ph'+Date.now()+Math.random().toString(36).slice(2,5),img,dataURL,w,h,N,sm,cls:null,wb:[1,1,1],wbAuto:true,cv};
+  ph.wb=autoWB(ph);computeLab(ph);
+  const seg=await loadSegmenter();
+  if(seg){try{const r=seg.segment(cv);const m=r.categoryMask;const a=m.getAsUint8Array();if(m.width===w&&m.height===h)ph.cls=Uint8Array.from(a);else{ph.cls=new Uint8Array(N);for(let j=0;j<h;j++)for(let i=0;i<w;i++)ph.cls[j*w+i]=a[Math.min(m.height-1,Math.floor(j*m.height/h))*m.width+Math.min(m.width-1,Math.floor(i*m.width/w))]}try{m.close()}catch(e){}}catch(e){console.warn('segment failed',e)}}
+  return ph;
 }
-function whiteGains(img,pt){const cv=document.createElement('canvas');cv.width=img.width;cv.height=img.height;const x=cv.getContext('2d',{willReadFrequently:true});x.drawImage(img,0,0);
-  const R=Math.max(3,Math.round(Math.min(img.width,img.height)*.02)),cx=Math.round(pt.x*img.width),cy=Math.round(pt.y*img.height);
-  const d=x.getImageData(Math.max(0,cx-R),Math.max(0,cy-R),2*R,2*R).data;let r=0,g=0,b=0,n=0;for(let i=0;i<d.length;i+=4){r+=lin(d[i]);g+=lin(d[i+1]);b+=lin(d[i+2]);n++}
-  r/=n;g/=n;b/=n;const m=Math.max(r,g,b,1e-4);return[m/Math.max(r,1e-4),m/Math.max(g,1e-4),m/Math.max(b,1e-4)]}
+/* auto white balance: brightest near-neutral pixels = the light color; correct 80%, capped */
+function autoWB(ph){const{sm,N}=ph;const L=[];for(let i=0;i<N;i++){const r=lin(sm[i*3]),g=lin(sm[i*3+1]),b=lin(sm[i*3+2]);const mx=Math.max(r,g,b),mn=Math.min(r,g,b);if(mx>.97||mx<.03)continue;if((mx-mn)/mx>.45)continue;L.push([.2126*r+.7152*g+.0722*b,r,g,b])}
+  if(L.length<50)return[1,1,1];L.sort((a,b)=>b[0]-a[0]);const top=L.slice(0,Math.max(20,Math.round(L.length*.03)));let R=0,G=0,B=0;top.forEach(p=>{R+=p[1];G+=p[2];B+=p[3]});
+  const m=Math.max(R,G,B);let g=[m/R,m/G,m/B];const y=.2126*g[0]+.7152*g[1]+.0722*g[2];g=g.map(v=>v/y).map(v=>Math.max(.6,Math.min(1.6,1+(v-1)*.8)));return g}
+function computeLab(ph){const{sm,N,wb}=ph;const lab=new Float32Array(N*3);for(let i=0;i<N;i++){const l=rgb2lab(unlin(lin(sm[i*3])*wb[0]),unlin(lin(sm[i*3+1])*wb[1]),unlin(lin(sm[i*3+2])*wb[2]));lab[i*3]=l[0];lab[i*3+1]=l[1];lab[i*3+2]=l[2]}ph.lab=lab}
+function setWhiteAt(ph,pt){const{w,h,sm}=ph;const cx=Math.round(pt.x*(w-1)),cy=Math.round(pt.y*(h-1));let r=0,g=0,b=0,n=0;for(let j=cy-3;j<=cy+3;j++)for(let i=cx-3;i<=cx+3;i++){if(i<0||j<0||i>=w||j>=h)continue;const k=(j*w+i)*3;r+=lin(sm[k]);g+=lin(sm[k+1]);b+=lin(sm[k+2]);n++}
+  r/=n;g/=n;b/=n;const m=Math.max(r,g,b,1e-4);let G=[m/Math.max(r,1e-4),m/Math.max(g,1e-4),m/Math.max(b,1e-4)];const y=.2126*G[0]+.7152*G[1]+.0722*G[2];ph.wb=G.map(v=>Math.max(.5,Math.min(2,v/y)));ph.wbAuto=false;computeLab(ph)}
+const L3=(ph,i)=>[ph.lab[i*3],ph.lab[i*3+1],ph.lab[i*3+2]];
+const dEw=(a,b)=>Math.sqrt(((a[0]-b[0])*.5)**2+(a[1]-b[1])**2+(a[2]-b[2])**2);
+function components(mask,w,h){const N=w*h,lab=new Int32Array(N).fill(-1),sizes=[],q=new Int32Array(N);let id=0;
+  for(let s=0;s<N;s++){if(!mask[s]||lab[s]>=0)continue;let qh=0,qt=0;q[qt++]=s;lab[s]=id;let n=0;while(qh<qt){const p=q[qh++];n++;const x=p%w,y=(p/w)|0;
+    if(x>0&&mask[p-1]&&lab[p-1]<0){lab[p-1]=id;q[qt++]=p-1}if(x<w-1&&mask[p+1]&&lab[p+1]<0){lab[p+1]=id;q[qt++]=p+1}if(y>0&&mask[p-w]&&lab[p-w]<0){lab[p-w]=id;q[qt++]=p-w}if(y<h-1&&mask[p+w]&&lab[p+w]<0){lab[p+w]=id;q[qt++]=p+w}}
+    sizes.push(n);id++}return{lab,sizes}}
+function bgColor(ph){const{w,h}=ph;const pts=[];for(let i=0;i<w;i+=2){pts.push(L3(ph,i),L3(ph,(h-1)*w+i))}for(let j=0;j<h;j+=2){pts.push(L3(ph,j*w),L3(ph,j*w+w-1))}
+  return[0,1,2].map(c=>{const v=pts.map(p=>p[c]).sort((a,b)=>a-b);return v[v.length>>1]})}
+function clothesMask(ph){const{N,w,h,cls}=ph;let m=new Uint8Array(N),cnt=0;
+  if(cls){for(let i=0;i<N;i++)if(cls[i]===4){m[i]=1;cnt++}}
+  if(!cls||cnt<N*.015){ // fallback: anything clearly different from the photo's edges
+    const bg=bgColor(ph);m=new Uint8Array(N);cnt=0;for(let i=0;i<N;i++){if(cls&&(cls[i]===1||cls[i]===2||cls[i]===3))continue;if(dEw(L3(ph,i),bg)>13){m[i]=1;cnt++}}ph.fallback=true}else ph.fallback=false;
+  // keep the big blobs only (ignore clothes piles on the floor, specks)
+  const c=components(m,w,h);if(!c.sizes.length)return m;const big=Math.max(...c.sizes);const keep=c.sizes.map(s=>s>=big*.12&&s>N*.004);
+  for(let i=0;i<N;i++)if(m[i]&&!keep[c.lab[i]])m[i]=0;return m}
+function kmeansLab(pts,k,it=12){if(pts.length<k)return pts.length?[{c:pts[0],n:pts.length,idx:pts.map((_,i)=>i)}]:[];
+  const srt=pts.map((p,i)=>[p[0],i]).sort((a,b)=>a[0]-b[0]);let C=[];for(let j=0;j<k;j++)C.push([...pts[srt[Math.floor((j+.5)/k*(srt.length-1))][1]]]);
+  const asg=new Int32Array(pts.length);
+  for(let t=0;t<it;t++){for(let i=0;i<pts.length;i++){let bi=0,bd=1e18;for(let j=0;j<k;j++){const d=dEw(pts[i],C[j]);if(d<bd){bd=d;bi=j}}asg[i]=bi}
+    const S=C.map(()=>[0,0,0,0]);for(let i=0;i<pts.length;i++){const s=S[asg[i]],p=pts[i];s[0]+=p[0];s[1]+=p[1];s[2]+=p[2];s[3]++}S.forEach((s,j)=>{if(s[3])C[j]=[s[0]/s[3],s[1]/s[3],s[2]/s[3]]})}
+  const out=C.map(c=>({c,n:0,idx:[]}));for(let i=0;i<pts.length;i++){out[asg[i]].n++;out[asg[i]].idx.push(i)}return out.filter(o=>o.n).sort((a,b)=>b.n-a.n)}
+const med=a=>{const s=Float32Array.from(a).sort();return s.length?s[s.length>>1]:0};
+/* the garment's true shade: biggest color cluster in the region, median of its pixels (ignores shadows, prints, background bleed) */
+function refine(ph,idx){if(!idx.length)return null;const step=Math.max(1,Math.floor(idx.length/5000));const sub=[];for(let i=0;i<idx.length;i+=step)sub.push(idx[i]);
+  const pts=sub.map(i=>L3(ph,i));let cl=kmeansLab(pts,3);
+  // merge clusters that are really the same fabric (light vs shadow side)
+  if(cl.length>1&&de2000(cl[0].c,cl[1].c)<9&&Math.abs(cl[0].c[0]-cl[1].c[0])<18){cl[0]={c:cl[0].c,n:cl[0].n+cl[1].n,idx:cl[0].idx.concat(cl[1].idx)};cl.splice(1,1)}
+  const dom=cl[0];const dp=dom.idx.map(i=>pts[i]);
+  const lab=[med(dp.map(p=>p[0])),med(dp.map(p=>p[1])),med(dp.map(p=>p[2]))];
+  let pattern=null;if(cl.length>1&&cl[1].n>sub.length*.28&&de2000(cl[0].c,cl[1].c)>16)pattern={lab:cl[1].c,share:cl[1].n/sub.length};
+  // fading / wash spread: lightness of the dominant color across a 3x3 grid of the region
+  const domSet=new Set(dom.idx.map(i=>sub[i]));const{w}=ph;let x0=1e9,x1=-1,y0=1e9,y1=-1;sub.forEach(i=>{const x=i%w,y=(i/w)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y});
+  const cells=Array.from({length:9},()=>[0,0]);domSet.forEach(i=>{const x=i%w,y=(i/w)|0;const cx=Math.min(2,Math.floor((x-x0)/(x1-x0+1)*3)),cy=Math.min(2,Math.floor((y-y0)/(y1-y0+1)*3));const c=cells[cy*3+cx];c[0]+=ph.lab[i*3];c[1]++});
+  const cm=cells.filter(c=>c[1]>6).map(c=>c[0]/c[1]);const mu=cm.reduce((a,v)=>a+v,0)/(cm.length||1);const spread=cm.length>2?Math.sqrt(cm.reduce((a,v)=>a+(v-mu)**2,0)/cm.length):0;
+  // pixels to highlight = all region pixels near the dominant shade
+  const show=idx.filter(i=>dEw(L3(ph,i),lab)<16);
+  return{lab,spread,pattern,show:show.length>20?show:idx}}
+function regionStats(ph,idx){const{w,h}=ph;let sx=0,sy=0,x0=1e9,x1=-1,y0=1e9,y1=-1;for(const i of idx){const x=i%w,y=(i/w)|0;sx+=x;sy+=y;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
+  return{cx:sx/idx.length/w,cy:sy/idx.length/h,box:[x0/w,y0/h,(x1+1)/w,(y1+1)/h]}}
+function makePieceFrom(ph,idx,type){const r=refine(ph,idx);if(!r)return null;const denim=looksDenim(r.lab,type);
+  const p={id:'p'+Date.now()+Math.random().toString(36).slice(2,6),ph,idx,type,lab:r.lab,spread:r.spread,pattern:r.pattern,show:r.show,denim,denimSet:null,...regionStats(ph,r.show)};
+  p.d=describe(p.lab,{type,denim,spread:p.spread,pattern:p.pattern});return p}
+function redescribe(p){const r=refine(p.ph,p.idx);if(!r)return;Object.assign(p,{lab:r.lab,spread:r.spread,pattern:r.pattern,show:r.show},regionStats(p.ph,r.show));const denim=p.denimSet==null?looksDenim(p.lab,p.type):p.denimSet;p.denim=denim;p.d=describe(p.lab,{type:p.type,denim,spread:p.spread,pattern:p.pattern})}
+/* split the clothes into pieces: find the line (row or column) where the color changes most */
+function bestSplit(ph,m,axis){const{w,h}=ph;const n=axis==='y'?h:w;const S=Array.from({length:n},()=>[0,0,0,0]);
+  for(let i=0;i<ph.N;i++){if(!m[i])continue;const k=axis==='y'?(i/w)|0:i%w;const s=S[k];s[0]+=ph.lab[i*3];s[1]+=ph.lab[i*3+1];s[2]+=ph.lab[i*3+2];s[3]++}
+  const tot=S.reduce((a,s)=>a+s[3],0);if(tot<50)return{score:0};const P=[[0,0,0,0]];for(const s of S){const l=P[P.length-1];P.push([l[0]+s[0],l[1]+s[1],l[2]+s[2],l[3]+s[3]])}
+  let best={score:0};for(let k=1;k<n;k++){const a=P[k],b=P[n].map((v,j)=>v-a[j]);if(a[3]<tot*.15||b[3]<tot*.15)continue;const ca=[a[0]/a[3],a[1]/a[3],a[2]/a[3]],cb=[b[0]/b[3],b[1]/b[3],b[2]/b[3]];const sc=de2000(ca,cb);if(sc>best.score)best={score:sc,k,axis}}
+  return best}
+function detectPieces(ph){const{w,h,N,cls}=ph;const m=clothesMask(ph);let cnt=0;for(let i=0;i<N;i++)cnt+=m[i];
+  const person=!!cls&&(()=>{let f=0;for(let i=0;i<N;i++)if(cls[i]===3)f++;return f>N*.002})();ph.person=person;
+  if(cnt<N*.012)return[];
+  const sy=bestSplit(ph,m,'y'),sx=bestSplit(ph,m,'x');const sp=(sx.score>Math.max(10,sy.score*1.6))?sx:sy;
+  const out=[];
+  if(sp.score<6){const all=[];for(let i=0;i<N;i++)if(m[i])all.push(i);
+    if(person){// one color head to toe: check top and bottom halves on their own
+      const ys=all.map(i=>(i/w)|0).sort((a,b)=>a-b);const cut=ys[Math.floor(ys.length*.45)];const A=all.filter(i=>((i/w)|0)<cut),B=all.filter(i=>((i/w)|0)>=cut);const pa=makePieceFrom(ph,A,'top'),pb=makePieceFrom(ph,B,'bottom');if(pa)out.push(pa);if(pb)out.push(pb);ph.mono=true}
+    else{const p=makePieceFrom(ph,all,'top');if(p)out.push(p);ph.single=true}
+  }else{const A=[],B=[];for(let i=0;i<N;i++){if(!m[i])continue;const k=sp.axis==='y'?(i/w)|0:i%w;(k<sp.k?A:B).push(i)}
+    let ta='top',tb='bottom';if(sp.axis==='x'){const ra=regionStats(ph,A),rb=regionStats(ph,B);const ar=r=>(r.box[3]-r.box[1])/(r.box[2]-r.box[0]+1e-3);if(ar(ra)>ar(rb)){ta='bottom';tb='top'}}
+    const pa=makePieceFrom(ph,A,ta),pb=makePieceFrom(ph,B,tb);if(pa)out.push(pa);if(pb)out.push(pb)}
+  // shoes: "accessory" class blobs at the feet
+  if(cls&&out.length){const bot=out.find(p=>p.type==='bottom')||out[out.length-1];const xs=[bot.box[0]-.12,bot.box[2]+.12],yMin=bot.box[1]+(bot.box[3]-bot.box[1])*.7;
+    const sm=new Uint8Array(N);for(let i=0;i<N;i++){if(cls[i]!==5)continue;const x=(i%w)/w,y=((i/w)|0)/h;if(x>=xs[0]&&x<=xs[1]&&y>=yMin)sm[i]=1}
+    const c=components(sm,w,h);if(c.sizes.length){const idx=[];const order=c.sizes.map((s,j)=>[s,j]).sort((a,b)=>b[0]-a[0]).slice(0,2).filter(([s])=>s>N*.0012).map(x=>x[1]);
+      if(order.length){for(let i=0;i<N;i++)if(order.includes(c.lab[i]))idx.push(i);const p=makePieceFrom(ph,idx,'shoes');if(p)out.push(p)}}}
+  return out}
+/* tap a piece: grow out from the tapped spot over fabric of the same shade (stops at skin, hair, background) */
+function pickAt(ph,pt,type){const{w,h,N,cls}=ph;const cx=Math.round(pt.x*(w-1)),cy=Math.round(pt.y*(h-1)),s0=cy*w+cx;
+  if(cls&&(cls[s0]===2||cls[s0]===3))return{err:'That spot looks like skin. Tap the fabric.'};if(cls&&cls[s0]===1)return{err:'That spot looks like hair. Tap the fabric.'};
+  const nb=[];for(let j=cy-2;j<=cy+2;j++)for(let i=cx-2;i<=cx+2;i++)if(i>=0&&j>=0&&i<w&&j<h)nb.push(L3(ph,j*w+i));const seed=[0,1,2].map(c=>med(nb.map(p=>p[c])));
+  const seen=new Uint8Array(N),q=new Int32Array(N);let qh=0,qt=0;q[qt++]=s0;seen[s0]=1;const idx=[];const cap=N*.45;
+  while(qh<qt&&idx.length<cap){const p=q[qh++];idx.push(p);const x=p%w,y=(p/w)|0;const nbs=[x>0?p-1:-1,x<w-1?p+1:-1,y>0?p-w:-1,y<h-1?p+w:-1];
+    for(const n of nbs){if(n<0||seen[n])continue;seen[n]=1;if(cls&&(cls[n]===1||cls[n]===2||cls[n]===3))continue;if(dEw(L3(ph,n),seed)<15)q[qt++]=n}}
+  if(idx.length<25){idx.length=0;for(let j=cy-4;j<=cy+4;j++)for(let i=cx-4;i<=cx+4;i++)if(i>=0&&j>=0&&i<w&&j<h)idx.push(j*w+i)}
+  const p=makePieceFrom(ph,idx,type);return p?{p}:{err:'Could not read that spot. Try again.'}}
+function loadImg(src){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>rej(new Error('decode'));i.src=src})}
+async function fileToDataURL(f,max=1200){const url=URL.createObjectURL(f);try{const i=await loadImg(url);const s=Math.min(1,max/Math.max(i.width,i.height));const c=document.createElement('canvas');c.width=Math.round(i.width*s);c.height=Math.round(i.height*s);c.getContext('2d').drawImage(i,0,0,c.width,c.height);return c.toDataURL('image/jpeg',.88)}finally{URL.revokeObjectURL(url)}}
 function sampleSmall(img,pt){const cv=document.createElement('canvas');cv.width=img.width;cv.height=img.height;const x=cv.getContext('2d',{willReadFrequently:true});x.drawImage(img,0,0);
   const R=Math.max(2,Math.round(Math.min(img.width,img.height)*.012)),cx=Math.round(pt.x*img.width),cy=Math.round(pt.y*img.height);const d=x.getImageData(Math.max(0,cx-R),Math.max(0,cy-R),2*R,2*R).data;
   const L=[];for(let i=0;i<d.length;i+=4)L.push(rgb2lab(d[i],d[i+1],d[i+2]));L.sort((a,b)=>a[0]-b[0]);return L[Math.floor(L.length/2)]}
-function loadImg(src){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=src})}
-async function fileToDataURL(f,max=640){const url=URL.createObjectURL(f);try{const i=await loadImg(url);const s=Math.min(1,max/Math.max(i.width,i.height));const c=document.createElement('canvas');c.width=Math.round(i.width*s);c.height=Math.round(i.height*s);c.getContext('2d').drawImage(i,0,0,c.width,c.height);return c.toDataURL('image/jpeg',.85)}finally{URL.revokeObjectURL(url)}}
-
-/* ============== storage (IndexedDB, on-device only) ============== */
+/* ============== storage (IndexedDB, on this phone only) ============== */
 let dbp=null;
 function db(){if(dbp)return dbp;dbp=new Promise((res,rej)=>{const r=indexedDB.open('fitbounty',1);r.onupgradeneeded=()=>{r.result.createObjectStore('items',{keyPath:'id'});r.result.createObjectStore('kv')};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});return dbp}
 async function tx(store,mode,fn){const d=await db();return new Promise((res,rej)=>{const t=d.transaction(store,mode),s=t.objectStore(store);const r=fn(s);t.oncomplete=()=>res(r&&r.result);t.onerror=()=>rej(t.error)})}
 const Items={all:()=>tx('items','readonly',s=>s.getAll()),put:it=>tx('items','readwrite',s=>s.put(it)),del:id=>tx('items','readwrite',s=>s.delete(id))};
 const KV={get:k=>tx('kv','readonly',s=>s.get(k)),set:(k,v)=>tx('kv','readwrite',s=>s.put(v,k))};
-async function wipeAll(){await tx('items','readwrite',s=>s.clear());await tx('kv','readwrite',s=>s.clear());['fb_consent','fb_fb'].forEach(k=>localStorage.removeItem(k));state.pieces=[];state.profile=null;state.closet=[];}
+async function wipeAll(){await tx('items','readwrite',s=>s.clear());await tx('kv','readwrite',s=>s.clear());['fb_consent','fb_fb'].forEach(k=>localStorage.removeItem(k));state.scan=newScan();state.profile=null;state.closet=[]}
 
-/* ============== app state & UI ============== */
+/* ============== app state & helpers ============== */
 const $=s=>document.querySelector(s),main=$('#main');
-const state={view:'home',pieces:[],closet:[],profile:null,dress:{occ:'casual',wx:'',src:'closet',snap:[]},pendingFile:null};
-const TYPES=[['top','Top'],['bottom','Bottom'],['dress','Dress'],['layer','Layer'],['shoes','Shoes']];
-function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),1800)}
+const newScan=()=>({photos:[],pieces:[],cur:0,fix:null,busy:null});
+const state={view:'home',scan:newScan(),closet:[],profile:null,dress:{occ:'casual',wx:''}};
+const ROLES=[['top','Top'],['bottom','Bottom'],['shoes','Shoes'],['layer','Layer']];
+const RC={top:'#c6ff3d',bottom:'#5ad1ff',shoes:'#ff9f43',layer:'#ff4d8d',dress:'#c6ff3d'};
+const RN={top:'Top',bottom:'Bottom',shoes:'Shoes',layer:'Layer',dress:'Dress'};
+function toast(t,ms=2200){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),ms)}
 function esc(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+const VW={match:'✓ MATCHES',works:'≈ WORKS',clash:'✗ CLASHES'};
 
-/* camera-first photo flow with one-time consent */
-let fileCb=null;
-function askPhoto(cb,facing){fileCb=cb;const f=$('#file');f.setAttribute('capture',facing||'environment');f.value='';
-  if(!localStorage.getItem('fb_consent')){$('#consent').classList.add('on');return}f.click()}
-$('#consentOk').onclick=()=>{localStorage.setItem('fb_consent','1');$('#consent').classList.remove('on');$('#file').click()};
-$('#consentNo').onclick=()=>{$('#consent').classList.remove('on');fileCb=null};
-$('#file').onchange=async e=>{const f=e.target.files[0];if(!f||!fileCb)return;const d=await fileToDataURL(f);const cb=fileCb;fileCb=null;cb(d)};
+/* photo input: camera or photo library, never uploaded */
+let photoCb=null;
+function pickFile(which,cb){photoCb=cb;const el=which==='cam'?$('#fileCam'):$('#fileLib');el.value='';el.click()}
+['fileCam','fileLib'].forEach(id=>$('#'+id).addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f||!photoCb)return;const cb=photoCb;photoCb=null;
+  try{const d=await fileToDataURL(f);await cb(d)}catch(err){console.error(err);toast(/decode/.test(err.message)?"Couldn't open that photo. Try a JPG/PNG, or a screenshot of it.":'Something went wrong reading that photo. Try again.',3500)}}));
+let sheetRole=null;
+function askPhoto(cb,facing,opts={}){const bg=$('#srcSheet');$('#srcTitle').textContent=opts.title||'Add a photo';$('#srcSub').textContent=opts.sub||'Photos stay on this phone.';
+  const rr=$('#roleRow');sheetRole=opts.roles?opts.roles[0][0]:null;
+  if(opts.roles){rr.classList.remove('hidden');rr.innerHTML=opts.roles.map(([k,t],i)=>`<span class="chip ${i?'':'on'}" data-r="${k}">${t}</span>`).join('');rr.querySelectorAll('[data-r]').forEach(c=>c.onclick=()=>{sheetRole=c.dataset.r;rr.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c))})}else rr.classList.add('hidden');
+  bg.classList.add('on');const close=()=>bg.classList.remove('on');
+  const run=w=>{close();const role=sheetRole;pickFile(w,d=>cb(d,role))};
+  $('#srcCam').onclick=()=>run('cam');$('#srcLib').onclick=()=>run('lib');$('#srcNo').onclick=close;bg.onclick=e=>{if(e.target===bg)close()};
+  const cam=$('#fileCam');cam.setAttribute('capture',facing==='user'?'user':'environment')}
 
-async function makePiece(dataURL,type){
-  const img=await loadImg(dataURL);const p={id:'p'+Date.now()+Math.random().toString(36).slice(2,6),img:dataURL,el:img,pt:null,wb:null,type,denimSet:null};
-  await analyze(p);return p}
-async function analyze(p){if(!p.el)p.el=await loadImg(p.img);const r=samplePiece(p.el,p.pt,p.wb);if(!r)return;
-  const guessDenim=(p.type==='bottom'||p.type==='layer')&&looksDenim(r.lab);const denim=p.denimSet===null||p.denimSet===undefined?guessDenim:p.denimSet;
-  p.d=describe(r.lab,{type:p.type,denim,spread:r.spread});p.lab=r.lab;p.spread=r.spread;p.denim=denim}
-function defaultType(i){return i===0?'top':i===1?'bottom':i===2?'shoes':'layer'}
+/* ============== scan flow ============== */
+async function startScan(dataURL){state.scan=newScan();go('scan');await addPhoto(dataURL,'all')}
+async function addPhoto(dataURL,role){const S=state.scan;S.busy=segP||segFail?'Finding the clothes…':'Loading the on-phone clothes finder (first time only)…';render();
+  const t0=performance.now();const ph=await buildPhoto(dataURL);S.photos.push(ph);S.cur=S.photos.length-1;
+  if(!ph.cls&&segFail&&!S.warned){S.warned=1;setTimeout(()=>toast("Basic mode: couldn't load the clothes finder. Tap pieces to fix.",3500),300)}
+  if(role==='all'){const found=detectPieces(ph);for(const p of found)setPiece(p)}
+  else{const m=clothesMask(ph);const c=components(m,ph.w,ph.h);let idx=[];if(c.sizes.length){const big=c.sizes.indexOf(Math.max(...c.sizes));for(let i=0;i<ph.N;i++)if(c.lab[i]===big)idx.push(i)}
+    if(idx.length<ph.N*.01){const r=pickAt(ph,{x:.5,y:.5},role);if(r.p)setPiece(r.p)}else{const p=makePieceFrom(ph,idx,role);if(p)setPiece(p)}}
+  S.ms=Math.round(performance.now()-t0);S.busy=null;render()}
+function setPiece(p){const S=state.scan;S.pieces=S.pieces.filter(x=>x.type!==p.type);S.pieces.push(p);const o={top:0,layer:1,bottom:2,shoes:3};S.pieces.sort((a,b)=>o[a.type]-o[b.type])}
+function matchResult(pieces){const g=t=>pieces.find(p=>p.type===t);const top=g('top'),bot=g('bottom'),sh=g('shoes'),ly=g('layer');
+  const A=top||ly,B=bot;if(!A||!B)return{need:!A?'top':'bottom',one:A||B};
+  const r=scorePair(A.d,B.d);const res={main:r,A,B,verdict:r.verdict,s:r.s,good:[...r.good],bad:[...r.bad],extra:[]};
+  for(const x of [sh,top&&ly?ly:null].filter(Boolean)){const rs=[A,B].filter(y=>y!==x).map(y=>({y,r:scorePair(x.d,y.d)})).sort((a,b)=>a.r.s-b.r.s)[0];res.extra.push({x,...rs});
+    const pl=/shoes|jeans|pants|chinos|denim$/.test(x.d.label);
+    if(rs.r.verdict==='clash'){res.bad.push(`The ${x.d.label} ${pl?'clash':'clashes'} with the ${rs.y.d.label}.`);if(res.verdict==='match'){res.verdict='works';res.s=Math.min(res.s,74)}}
+    else if(rs.r.s>=75)res.good.push(`The ${x.d.label} ${pl?'go':'goes'} with it too.`)}
+  res.why=cap(character(A.d,B.d,r))+'.';return res}
+const orList=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' or '+a[a.length-1];
+const itemName=d=>d.kind==='d'?d.name:d.name+(d.type==='bottom'?' pants':d.type==='top'?' top':d.type==='shoes'?' shoes':d.type==='layer'?' jacket':'');
+function anchorOf(A,B){const s=p=>p.d.neutral?0:p.d.C;return s(A)>=s(B)?[A,B]:[B,A]}
+function closetBest(type,anchor,exclude){const c=state.closet.filter(i=>i.type===type).map(i=>{const d=describe(i.lab,{type:i.type,denim:i.denim,spread:i.spread});return{i,d,r:scorePair(anchor.d,d)}}).filter(x=>!exclude||de2000(x.d.lab,exclude.lab)>6).sort((a,b)=>b.r.s-a.r.s);return c}
+function tipsFor(res){const T=[];const sw=[];
+  if(res.need){const one=res.one;const want=res.need;const sg=suggestFor(one.d,{type:want,lab:[50,0,0]},state.profile);const cl=closetBest(want,one).filter(x=>x.r.s>=60).slice(0,3);
+    return{T:[cl.length?`From your closet, ${cl.map(x=>`your <b>${esc(x.d.label)}</b>`).join(' or ')} would go with this.`:`If you own them, ${orList(sg.map(x=>`<b>${esc(itemName(x.c))}</b>`))} would go with this ${esc(one.d.shade)}.`],sw:(cl.length?cl.map(x=>({hex:x.d.hex,name:x.d.label,img:x.i.img})):sg.map(x=>({hex:x.c.hex,name:x.c.name})))}}
+  const r=res.main,[keep,swap]=anchorOf(res.A,res.B);
+  if(res.verdict!=='match'){const cl=closetBest(swap.type,keep,swap.d).filter(x=>x.r.s>Math.max(r.s,60));
+    if(cl.length){T.push(`Swap from your closet: your <b>${esc(cl[0].d.label)}</b> ${cl[0].r.verdict==='match'?'matches':'works'} with the ${esc(keep.d.label)}.`);cl.slice(0,3).forEach(x=>sw.push({hex:x.d.hex,name:x.d.label,img:x.i.img}))}
+    else{const sg=suggestFor(keep.d,swap.d,state.profile).filter(x=>x.sc>r.s);if(sg.length){T.push(`Keep the ${esc(keep.d.label)}. If you own ${orList(sg.map(x=>`<b>${esc(itemName(x.c))}</b>`))}, swap ${sg.length>1||swap.type==='bottom'?'them':'it'} in.`);sg.forEach(x=>sw.push({hex:x.c.hex,name:x.c.name}))}}}
+  if(r.rel==='near')T.push('Either wear them as the exact same shade or make them clearly different. Close-but-off is the one thing to avoid.');
+  if(r.rel==='same'&&!res.A.d.neutral)T.push('Break up the one-color look with neutral shoes, a belt, or a jacket you own (black, white, or denim).');
+  const shL=res.extra.find(e=>e.x.type==='shoes');if(r.dL<12&&r.rel!=='same'&&r.rel!=='near'&&shL&&Math.abs(shL.x.d.L-(res.A.d.L+res.B.d.L)/2)>35)T.push(`Your ${esc(shL.x.d.label)} already break up the dark: good call.`);else if(r.dL<12&&r.rel!=='same'&&r.rel!=='near')T.push(res.A.d.L<40&&res.B.d.L<40?'Both are dark. Add one light thing you own (white sneakers, a light layer) to break it up.':'Add one darker or lighter thing you own (shoes, belt, or layer) to add contrast.');
+  const sh=res.extra.find(e=>e.x.type==='shoes');
+  if(!sh){const opts=STAPLES.shoes.map(n=>SHADES.find(s=>s.name===n)).filter(Boolean).map(s=>describe(s.lab,{type:'shoes'})).map(d=>({d,v:Math.min(scorePair(d,res.A.d).s,scorePair(d,res.B.d).s)})).sort((a,b)=>b.v-a.v);T.push(`Shoes: ${opts[0].d.name} or ${opts[1].d.name} ones you own finish it best.`)}
+  else if(sh.r.verdict==='clash')T.push('Switch to plain white, black, or tan shoes you own.');
+  if(res.verdict==='match'){const den=res.B.d.kind==='d';T.push(den?'Style it: front-tuck the top and cuff the jeans once.':res.A.d.bold?'Let the top be the star: keep jewelry and bag simple.':'Style it: tuck the top or add a belt to sharpen the shape.')}
+  return{T:T.slice(0,3),sw}}
 
-function go(v){state.view=v;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.go===v));$('#back').style.display=v==='home'?'none':'block';render();main.scrollTop=0}
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.go));$('#back').onclick=()=>go('home');
-
-function render(){const v=state.view;$('#title').textContent={home:'Fit Bounty',check:'Does this match?',dress:"I'm getting dressed",closet:'My closet',me:'My colors'}[v];
-  ({home:vHome,check:vCheck,dress:vDress,closet:vCloset,me:vMe})[v]()}
-
-function vHome(){
+function drawStage(cv,ph,pieces){const img=ph.img;const W=Math.min(900,img.width);cv.width=W;cv.height=Math.round(W*img.height/img.width);const x=cv.getContext('2d');x.drawImage(img,0,0,cv.width,cv.height);
+  const mine=pieces.filter(p=>p.ph===ph);const o=document.createElement('canvas');o.width=ph.w;o.height=ph.h;const ox=o.getContext('2d');const id=ox.createImageData(ph.w,ph.h);const owner=new Int16Array(ph.N).fill(-1);mine.forEach((p,k)=>p.show.forEach(i=>owner[i]=k));
+  for(let i=0;i<ph.N;i++){const k=owner[i];if(k<0){id.data[i*4+3]=mine.length?150:0}else{const c=hex2rgb(RC[mine[k].type]);id.data[i*4]=c[0];id.data[i*4+1]=c[1];id.data[i*4+2]=c[2];id.data[i*4+3]=0}}
+  ox.putImageData(id,0,0);x.imageSmoothingEnabled=true;x.drawImage(o,0,0,cv.width,cv.height);
+  // outline each piece
+  mine.forEach((p,k)=>{x.fillStyle=RC[p.type];const sx=cv.width/ph.w,sy=cv.height/ph.h;for(const i of p.show){const a=i%ph.w,b=(i/ph.w)|0;const edge=a===0||b===0||a===ph.w-1||b===ph.h-1||owner[i-1]!==k||owner[i+1]!==k||owner[i-ph.w]!==k||owner[i+ph.w]!==k;if(edge)x.fillRect(a*sx-1,b*sy-1,sx+2,sy+2)}});
+  const f=Math.max(1,cv.width/360);
+  mine.forEach(p=>{const n=pieces.indexOf(p)+1;const px=p.cx*cv.width,py=p.cy*cv.height;const t=`${n} ${RN[p.type].toUpperCase()}`;x.font=`900 ${13*f}px -apple-system,Segoe UI,Roboto,sans-serif`;const tw=x.measureText(t).width+18*f,th=26*f;
+    x.fillStyle='#0a0a0c';x.beginPath();x.roundRect?x.roundRect(px-tw/2,py-th/2,tw,th,th/2):x.rect(px-tw/2,py-th/2,tw,th);x.fill();x.strokeStyle=RC[p.type];x.lineWidth=2.5*f;x.stroke();x.fillStyle=RC[p.type];x.textAlign='center';x.textBaseline='middle';x.fillText(t,px,py+1*f)})}
+function pieceRow(p,n){const d=p.d;const tags=[d.depth,d.kind==='c'?d.under+' undertone':d.kind==='d'?'denim':'neutral',d.kind==='c'?d.sat:null,p.pattern?'pattern / 2-tone':null,d.wash&&d.wash.uneven?'faded wash':null].filter(Boolean);
+  return`<div class="pc"><div class="sw" style="background:${d.hex}"><b style="background:${RC[p.type]}">${n}</b></div><div>
+   <div class="rl">${RN[p.type]} · <span style="font-family:ui-monospace,Menlo,monospace;letter-spacing:0">${d.hex.toUpperCase()}</span></div>
+   <div class="nm">${esc(d.label)}</div><div class="tags">${tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+   <div class="chips" style="margin:7px 0 0;gap:5px">${ROLES.map(([k,t])=>`<span class="chip" style="padding:4px 9px;font-size:12px;${p.type===k?'background:#fff;color:#000;border-color:#fff':''}" data-ty="${p.id}:${k}">${t}</span>`).join('')}
+   ${p.type==='bottom'||p.type==='layer'?`<span class="chip" style="padding:4px 9px;font-size:12px;${p.denim?'background:#5ad1ff;color:#000;border-color:#5ad1ff':''}" data-den="${p.id}">Denim ${p.denim?'✓':'?'}</span>`:''}
+   <span class="chip" style="padding:4px 9px;font-size:12px" data-rm="${p.id}">✕</span></div></div></div>`}
+function vScan(){const S=state.scan;const ph=S.photos[S.cur];
+  if(!ph){main.innerHTML=`<div class="card"><div class="row"><div class="spin"></div><b>${esc(S.busy||'Loading…')}</b></div></div>`;return}
+  const res=matchResult(S.pieces);const wbOff=Math.max(...ph.wb.map(v=>Math.abs(v-1)))>.08;const warm=ph.wb[2]>ph.wb[0];
+  let vh;
+  if(!S.pieces.length)vh=`<div class="verdict need"><div class="vs">Shade check</div><div class="vw" style="font-size:30px">No clothes found</div><div class="vy">Pick <b>Top</b> or <b>Bottom</b> below, then tap the piece in the photo.</div></div>`;
+  else if(res.need)vh=`<div class="verdict need"><div class="vs">Shade check · 1 of 2</div><div class="vw" style="font-size:32px">Got the ${RN[res.one.type].toLowerCase()}.</div><div class="vy">Now add the ${res.need==='bottom'?'bottoms':'top'}: tap it in this photo, or add another photo.</div></div>`;
+  else vh=`<div class="verdict ${res.verdict}"><div class="vs">Shade check · ${res.s}/100</div><div class="vw">${VW[res.verdict]}</div><div class="vy">${esc(res.why)}</div><div class="meter"><i style="width:${res.s}%"></i></div></div>`;
+  const tp=S.pieces.length?tipsFor(res):{T:[],sw:[]};
+  const fixHint=S.fix==='wb'?'Tap something that is <b>pure white or gray</b> in the photo.':S.fix?`Now tap the <b>${RN[S.fix].toLowerCase()}</b> in the photo.`:'Wrong spot? Pick one, then tap that piece in the photo.';
   main.innerHTML=`
-  <button class="hero" id="hMatch"><div style="font-size:13px;opacity:.75">Spur-of-the-moment check</div><div class="big">Does this match?</div><div class="sub">Snap your top, then your bottoms. Get an answer in seconds.</div><span class="cam">📷 Snap first piece</span></button>
-  <button class="tile" id="hDress"><span class="ic">✦</span><span><b>I'm getting dressed now</b><small>Pick the occasion and get 1–3 outfits ranked from what you own</small></span></button>
-  <button class="tile" id="hCloset"><span class="ic">▦</span><span><b>My closet</b> <small>${state.closet.length} piece${state.closet.length===1?'':'s'} saved on this phone</small></span></button>
-  <button class="tile" id="hMe"><span class="ic">☺</span><span><b>My colors</b><small>${state.profile&&state.profile.season?`Estimated: ${state.profile.season}`:'One photo gives a color palette estimate'}</small></span></button>
-  <div class="card soon"><b>See it on you: try-on coming soon</b><div class="note" style="margin-top:4px">Later you'll see a preview of you wearing the outfit. Not in this version, and nothing leaves your phone.</div></div>
-  <p class="note" style="text-align:center">🔒 Photos stay on this phone · 18+ for public use · working title</p>`;
-  $('#hMatch').onclick=()=>askPhoto(async d=>{state.pieces=[await makePiece(d,'top')];go('check')});
-  $('#hDress').onclick=()=>go('dress');$('#hCloset').onclick=()=>go('closet');$('#hMe').onclick=()=>go('me');
+   ${vh}
+   <div class="stage" id="stage"><canvas id="cv"></canvas>${S.busy?`<div class="busy"><div class="spin"></div>${esc(S.busy)}</div>`:''}</div>
+   ${S.photos.length>1?`<div class="thumbs">${S.photos.map((p,i)=>`<img src="${p.dataURL}" class="${i===S.cur?'on':''}" data-ph="${i}" alt="photo ${i+1}">`).join('')}</div>`:''}
+   <div class="fixbar"><p class="hint">${fixHint}</p><div class="chips" style="margin:0">${ROLES.map(([k,t])=>`<span class="chip ${S.fix===k?'on':''}" data-fix="${k}" style="border-color:${RC[k]}">${t}</span>`).join('')}<span class="chip ${S.fix==='wb'?'on':''}" data-fix="wb">⚪ White</span></div>
+   ${wbOff?`<div class="note" style="margin-top:6px">💡 Corrected for ${warm?'warm/yellow':'cool/blue'} lighting${ph.wbAuto?'':' (from your white tap)'}.</div>`:''}</div>
+   ${vh}
+   ${S.pieces.length?`<div class="card" style="padding:4px 16px">${S.pieces.map((p,i)=>pieceRow(p,i+1)).join('')}</div>`:''}
+   ${res.main?`<div class="card"><div class="sec">Why</div><ul class="why">${res.good.slice(0,3).map(t=>`<li class="g">${esc(t)}</li>`).join('')}${res.bad.slice(0,3).map(t=>`<li class="b">${esc(t)}</li>`).join('')}</ul>
+     <div class="note" style="margin-top:8px">Shade gap ${res.main.dE.toFixed(0)}/100 · light/dark gap ${Math.round(res.main.dL)}/100</div></div>`:''}
+   ${tp.T.length?`<div class="tip"><div class="sec">${res.verdict==='match'?'Style it':'Fix it with what you own'}</div>${tp.T.map(t=>`<p>${t}</p>`).join('')}
+     ${tp.sw.length?`<div class="swrow">${tp.sw.map(s=>`<div>${s.img?`<img src="${s.img}" class="sw" style="object-fit:cover;outline:3px solid ${s.hex};outline-offset:-3px">`:`<span class="sw" style="background:${s.hex}"></span>`}${esc(s.name)}</div>`).join('')}</div>`:''}</div>`:''}
+   <button class="btn" id="addP">＋ Add a piece from another photo</button>
+   ${S.pieces.length?`<button class="btn ghost" id="saveC">▦ Save ${S.pieces.length>1?'these pieces':'this piece'} to my closet</button>`:''}
+   <button class="btn acc" id="again">📷 Check another outfit</button>
+   <p class="note" style="text-align:center">🔒 Analyzed on this phone. The photo is never uploaded.${S.ms?` · ${(S.ms/1000).toFixed(1)}s`:''}</p>`;
+  const cv=$('#cv');drawStage(cv,ph,S.pieces);
+  cv.onclick=e=>{if(S.busy)return;const b=cv.getBoundingClientRect(),pt={x:(e.clientX-b.left)/b.width,y:(e.clientY-b.top)/b.height};
+    if(S.fix==='wb'){setWhiteAt(ph,pt);S.pieces.filter(p=>p.ph===ph).forEach(redescribe);S.fix=null;toast('Colors corrected for this light');render();return}
+    let role=S.fix;if(!role){const gi=Math.round(pt.y*(ph.h-1))*ph.w+Math.round(pt.x*(ph.w-1));const hit=S.pieces.find(p=>p.ph===ph&&p.show.includes(gi));role=hit?hit.type:(!S.pieces.some(p=>p.type==='top')?'top':!S.pieces.some(p=>p.type==='bottom')?'bottom':null);if(!role){toast('Pick Top, Bottom, Shoes, or Layer first');return}}
+    const r=pickAt(ph,pt,role);if(r.err){toast(r.err);return}setPiece(r.p);S.fix=null;render()};
+  main.querySelectorAll('[data-fix]').forEach(c=>c.onclick=()=>{S.fix=S.fix===c.dataset.fix?null:c.dataset.fix;render()});
+  main.querySelectorAll('[data-ph]').forEach(c=>c.onclick=()=>{S.cur=+c.dataset.ph;render()});
+  main.querySelectorAll('[data-ty]').forEach(c=>c.onclick=()=>{const[id,t]=c.dataset.ty.split(':');const p=S.pieces.find(x=>x.id===id);if(!p||p.type===t)return;const other=S.pieces.find(x=>x.type===t);if(other)other.type=p.type,redescribe(other);p.type=t;p.denimSet=null;redescribe(p);setPiece(p);render()});
+  main.querySelectorAll('[data-den]').forEach(c=>c.onclick=()=>{const p=S.pieces.find(x=>x.id===c.dataset.den);p.denimSet=!p.denim;redescribe(p);render()});
+  main.querySelectorAll('[data-rm]').forEach(c=>c.onclick=()=>{S.pieces=S.pieces.filter(x=>x.id!==c.dataset.rm);render()});
+  $('#addP').onclick=()=>askPhoto(async(d,role)=>{await addPhoto(d,role)},'env',{title:"What's in this photo?",sub:'Pick one, then take or choose the photo.',roles:[[res.need||'bottom',RN[res.need||'bottom']],...ROLES.filter(([k])=>k!==(res.need||'bottom')),['all','Whole outfit']]});
+  $('#again').onclick=()=>pickFile('cam',startScan);
+  const sc=$('#saveC');if(sc)sc.onclick=async()=>{for(const p of S.pieces){const it={id:'i'+Date.now()+Math.random().toString(36).slice(2,6),img:cropPiece(p),lab:p.lab,spread:p.spread,type:p.type,denim:p.denim,added:Date.now()};await Items.put(it);state.closet.push(it)}toast(`Saved to your closet (${state.closet.length} pieces)`);sc.disabled=true;sc.textContent='✓ Saved to closet'};
 }
+function cropPiece(p){const img=p.ph.img;let[x0,y0,x1,y1]=p.box;const px=(x1-x0)*.06,py=(y1-y0)*.06;x0=Math.max(0,x0-px);y0=Math.max(0,y0-py);x1=Math.min(1,x1+px);y1=Math.min(1,y1+py);
+  const sw=(x1-x0)*img.width,sh=(y1-y0)*img.height,s=Math.min(1,260/Math.max(sw,sh));const c=document.createElement('canvas');c.width=Math.max(8,Math.round(sw*s));c.height=Math.max(8,Math.round(sh*s));c.getContext('2d').drawImage(img,x0*img.width,y0*img.height,sw,sh,0,0,c.width,c.height);return c.toDataURL('image/jpeg',.8)}
 
-function pieceCard(p,i,opts={}){const d=p.d;if(!d)return'';
-  const wash=d.kind==='d'?` · Wash: ${d.wash.uneven?'uneven / faded spots':'even'}`:'';
-  return `<div class="card piece" data-i="${i}">
-   <div><canvas width="236" height="300" data-cv="${i}"></canvas><div class="note" style="text-align:center;margin-top:4px">${p.calib?'Tap something white':'Tap the fabric'}</div></div>
-   <div>
-    <div class="row" style="gap:10px;flex-wrap:nowrap"><span class="sw" style="background:${d.hex}"></span><p class="shade">${esc(d.label)}</p></div>
-    <div class="meta">Undertone: <b>${d.kind==='d'?'cool blue (denim)':d.under==='neutral'?'neutral':d.under+(d.under==='cool'?' (blue-leaning)':' (yellow-leaning)')}</b><br>Depth: <b>${d.depth}</b> (L* ${Math.round(d.L)}) · Saturation: <b>${d.sat}</b>${wash}${p.wb?'<br>✓ white-balanced':''}</div>
-    <div class="chips">${TYPES.map(([k,t])=>`<span class="chip ${p.type===k?'on':''}" data-type="${k}" data-i="${i}">${t}</span>`).join('')}</div>
-    <div class="row"><span class="chip ${p.denim?'on':''}" data-denim="${i}">Denim${p.denim?' ✓':'?'}</span><span class="chip ${p.calib?'on':''}" data-calib="${i}">⚪ White balance</span>${opts.rm?`<span class="chip" data-rm="${i}">Remove</span>`:''}${opts.save?`<span class="chip" data-save="${i}">${p.saved?'Saved ✓':'+ Closet'}</span>`:''}</div>
-   </div></div>`}
-function drawPieceCanvas(cv,p){const x=cv.getContext('2d'),img=p.el,W=cv.width,H=cv.height,s=Math.max(W/img.width,H/img.height),dw=img.width*s,dh=img.height*s,ox=(W-dw)/2,oy=(H-dh)/2;
-  x.clearRect(0,0,W,H);x.drawImage(img,ox,oy,dw,dh);const pt=p.pt||{x:.5,y:.5};const R=(p.pt?.11:.24)*Math.min(dw,dh);
-  x.lineWidth=3;x.strokeStyle='#fff';x.shadowColor='rgba(0,0,0,.5)';x.shadowBlur=4;x.beginPath();x.arc(ox+pt.x*dw,oy+pt.y*dh,Math.max(10,R),0,7);x.stroke();x.shadowBlur=0;
-  cv._map=e=>{const r=cv.getBoundingClientRect();const X=(e.clientX-r.left)*W/r.width,Y=(e.clientY-r.top)*H/r.height;return{x:Math.min(1,Math.max(0,(X-ox)/dw)),y:Math.min(1,Math.max(0,(Y-oy)/dh))}}}
-function bindPieces(list,rerender){
-  main.querySelectorAll('canvas[data-cv]').forEach(cv=>{const p=list[+cv.dataset.cv];drawPieceCanvas(cv,p);cv.onclick=async e=>{const pt=cv._map(e);if(p.calib){p.wb=whiteGains(p.el,pt);p.calib=false;toast('White balance set')}else p.pt=pt;await analyze(p);rerender()}});
-  main.querySelectorAll('[data-type]').forEach(c=>c.onclick=async()=>{const p=list[+c.dataset.i];p.type=c.dataset.type;p.denimSet=null;await analyze(p);rerender()});
-  main.querySelectorAll('[data-denim]').forEach(c=>c.onclick=async()=>{const p=list[+c.dataset.denim];p.denimSet=!p.denim;await analyze(p);rerender()});
-  main.querySelectorAll('[data-calib]').forEach(c=>c.onclick=()=>{const p=list[+c.dataset.calib];p.calib=!p.calib;rerender();if(p.calib)toast('Now tap something white in that photo')});
-  main.querySelectorAll('[data-rm]').forEach(c=>c.onclick=()=>{list.splice(+c.dataset.rm,1);rerender()});
-  main.querySelectorAll('[data-save]').forEach(c=>c.onclick=async()=>{const p=list[+c.dataset.save];if(p.saved)return;await saveToCloset(p);p.saved=true;toast('Saved to your closet');rerender()});
-}
-async function saveToCloset(p){const it={id:'i'+Date.now()+Math.random().toString(36).slice(2,5),img:p.img,lab:p.lab,spread:p.spread,type:p.type,denim:p.denim,pt:p.pt,wb:p.wb,added:Date.now()};await Items.put(it);state.closet.push(it)}
+/* ============== home ============== */
+function vHome(){main.innerHTML=`
+  <h2 class="big">Does it <em>match?</em></h2>
+  <p class="lede">One photo of your outfit. The app finds each piece, reads its exact shade, and tells you straight: matches, works, or clashes, and how to fix it with what you already own.</p>
+  <button class="btn acc" id="cam">📷 Take a photo</button>
+  <button class="btn" id="lib">🖼 Choose from my photos</button>
+  <p class="note" style="text-align:center;margin:6px 0 0">🔒 Photos are checked on this phone and never uploaded.</p>
+  <div class="howto"><div><b>1</b>Mirror selfie, or lay the outfit flat</div><div><b>2</b>It outlines the top, bottoms, and shoes</div><div><b>3</b>Wrong spot? Tap the piece to fix it</div></div>
+  <div class="sec" style="margin-top:18px">No photo handy? Try one</div>
+  <div class="samples">${[['s1','Hoodie + jeans'],['s2','Flat lay'],['s3','Sweater + jeans']].map(([k,t])=>`<button data-s="${k}"><img src="samples/${k}.jpg" alt="${t}" loading="lazy" onerror="this.closest('.samples').style.display='none'"><span>${t}</span></button>`).join('')}</div>
+  <div class="card" style="margin-top:16px"><div class="sec">Tips for an honest read</div><div class="note">Daylight or bright white light is best. Fill the frame with the clothes. Plain background helps. If the light is yellow, tap <b>⚪ White</b> and then something white in the photo.</div></div>`;
+  $('#cam').onclick=()=>pickFile('cam',startScan);$('#lib').onclick=()=>pickFile('lib',startScan);
+  main.querySelectorAll('[data-s]').forEach(b=>b.onclick=async()=>{try{const r=await fetch('samples/'+b.dataset.s+'.jpg');const bl=await r.blob();const d=await new Promise(res=>{const f=new FileReader();f.onload=()=>res(f.result);f.readAsDataURL(bl)});startScan(d)}catch(e){toast('Sample not available offline')}});
+  loadSegmenter()}
 
-/* ---------- Match view ---------- */
-function matchResult(pieces){
-  const ds=pieces.map(p=>p.d);const pairs=[];for(let i=0;i<ds.length;i++)for(let j=i+1;j<ds.length;j++)pairs.push({i,j,r:scorePair(ds[i],ds[j])});
-  pairs.sort((a,b)=>a.r.s-b.r.s);const worst=pairs[0];
-  const main2=pairs.find(p=>p.i===0&&p.j===1)||worst; // top + bottom drives the headline
-  const verdict=worst.r.verdict==='clash'?'clash':pairs.every(p=>p.r.verdict==='match')?'match':(main2.r.verdict==='match'&&worst.r.verdict!=='clash'&&worst.r.s>=65?'match':'works');
-  return{pairs,worst,main:main2,verdict}
-}
-function popTip(ds,res){
-  const tips=[];const closet=state.closet.map(it=>({it,d:describe(it.lab,{type:it.type,denim:it.denim,spread:it.spread})}));
-  const has=t=>ds.some(d=>d.type===t);
-  const owned=(type,base)=>closet.filter(c=>c.d.type===type).map(c=>({...c,sc:Math.min(...base.map(b=>scorePair(c.d,b).s))})).sort((a,b)=>b.sc-a.sc);
-  if(!has('shoes')){const sh=owned('shoes',ds);
-    if(sh.length)tips.push(`Shoes from your closet: your <b>${esc(sh[0].d.label)}</b> work best here.`);
-    else{const dark=ds.every(d=>d.L<45);tips.push(dark?'White sneakers (if you have them) make this look fresh. Black sneakers keep it low-key. Both work.':'Black or white sneakers you already own both work; pick black for a sharper look.')}}
-  if(res.worst.r.dL<8)tips.push('Low contrast: break it up with something lighter you own between them, like a white tee peeking out or white sneakers, or put the lighter piece on top.');
-  if(res.verdict==='clash'){const bad=res.worst;const keep=ds[bad.i],swap=ds[bad.j];const alt=owned(swap.type,[keep]).filter(c=>c.sc>=60);
-    tips.unshift(alt.length?`Swap the ${esc(swap.shade)} for your <b>${esc(alt[0].d.label)}</b> (already in your closet).`:`Swap the ${esc(swap.shade)} for something neutral you already own: black, gray, white, or denim.`)}
-  const den=ds.find(d=>d.kind==='d');if(den&&res.verdict!=='clash')tips.push(den.wash.depth==='light'?'Cuff the jeans once and push up the sleeves for a relaxed look.':'Tuck just the front of the top to show the waist. It looks more put-together.');
-  return tips.slice(0,3);
-}
-function paletteNote(d){const pr=state.profile;if(!pr||!pr.palette)return'';const pd=Math.min(...pr.palette.map(h=>de2000(d.lab,rgb2lab(...hex2rgb(h)))));
-  return pd<14?`✓ ${cap(d.shade)} is close to your ${pr.season} palette, so it's good near your face.`:`${cap(d.shade)} is outside your estimated ${pr.season} palette. That's fine for bottoms; near your face, add a palette-color layer you own.`}
-function resultCard(pieces){
-  if(pieces.length<2)return`<div class="card"><b>Add one more piece</b><div class="note">Snap the bottoms (or shoes) to check the match.</div></div>`;
-  const res=matchResult(pieces),ds=pieces.map(p=>p.d),A=ds[res.main.i],B=ds[res.main.j],r=res.main.r;
-  let why=`${cap(A.label)} + ${B.label}: ${character(A,B,r)}.`;
-  const den=r.den;if(den&&!r.oth.neutral&&r.oth.L<45){why+=den.wash.depth==='light'?` With a darker wash it would read dressier.`:` With light faded denim it would read more laid back.`}
-  const bullets=[...r.bad,...r.good].slice(0,4);
-  if(res.worst!==res.main){const W=res.worst;bullets.unshift(`Weakest pair: ${ds[W.i].shade} + ${ds[W.j].shade} (${W.r.verdict}).`)}
-  const sug=suggestFor(B,A,state.profile);const tips=popTip(ds,res);const pn=paletteNote(ds.find(d=>d.type==='top')||A);
-  return `<div class="card" id="result" data-verdict="${res.verdict}" data-score="${r.s}">
-   <div class="verdict"><span class="badge ${res.verdict}" id="verdict">${res.verdict==='match'?'✓ MATCH':res.verdict==='works'?'👍 WORKS':'✗ CLASH'}</span><span class="note">score ${r.s}/100${pieces.length>2?` · weakest pair ${res.worst.r.s}`:''}</span></div>
-   <div class="why" id="why">${esc(why)}</div>
-   <ul class="r">${bullets.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>
-   <div class="tip"><b>${res.verdict==='clash'?'Fix it with what you own':'Make it pop (with what you own)'}:</b><br>${tips.join('<br>')}</div>
-   ${pn?`<div class="note" style="margin-top:10px">${esc(pn)}</div>`:''}
-   <div style="margin-top:12px"><b style="font-size:13.5px">Shades that would also work with your ${esc(B.shade)}</b><div class="note">Check your closet for these. No shopping needed.</div>
-   <div class="swrow">${sug.map(x=>`<div><span class="sw" style="background:${x.c.hex}"></span>${esc(x.c.name)}</div>`).join('')}</div></div>
-   <div class="note" style="margin-top:12px">💡 Colors depend on light. Indoor bulbs make things look warmer, and shade makes them look bluer. For a truer read, use daylight or tap <b>⚪ White balance</b> and then something white in the photo.</div>
-  </div>`}
-function vCheck(){
-  const P=state.pieces;
-  main.innerHTML=(P.length?'':`<div class="card"><b>Snap 2–5 pieces</b><div class="note">Top first, then bottoms, then shoes or a layer if you like.</div></div>`)+
-   P.map((p,i)=>pieceCard(p,i,{rm:true,save:true})).join('')+
-   (P.length<5?`<button class="btn acc" id="addP" style="margin:6px 0">📷 ${P.length?'Snap next piece':'Snap first piece'}</button>`:'')+
-   resultCard(P)+(P.length?`<button class="btn ghost" id="clr" style="margin-top:4px">Start over</button>`:'');
-  bindPieces(P,vCheck);
-  const a=$('#addP');if(a)a.onclick=()=>askPhoto(async d=>{P.push(await makePiece(d,defaultType(P.length)));vCheck();setTimeout(()=>{const r=$('#result');if(r)r.scrollIntoView({behavior:'smooth',block:'start'})},60)});
-  const c=$('#clr');if(c)c.onclick=()=>{state.pieces=[];vCheck()};
-}
-
+/* ============== closet ============== */
+function vCloset(){const C=state.closet;main.innerHTML=`<h2 class="big" style="font-size:32px">My closet</h2><p class="lede" style="font-size:14.5px">Pieces you own. Fix tips and Dress me pick only from here. Save pieces from any scan, or add one photo per piece.</p>
+  <button class="btn acc" id="addI">＋ Add a piece</button>
+  ${C.length?ROLES.map(([k,t])=>{const its=C.filter(i=>i.type===k);return its.length?`<div class="sec" style="margin-top:14px">${t}s · ${its.length}</div><div class="grid">${its.map(i=>{const d=describe(i.lab,{type:i.type,denim:i.denim,spread:i.spread});return`<div class="it"><img src="${i.img}" alt=""><div class="lab"><span class="sw" style="background:${d.hex}"></span>${esc(d.name)}</div><button class="x" data-del="${i.id}" aria-label="Remove">✕</button></div>`}).join('')}</div>`:''}).join(''):`<div class="card note">Empty for now. Scan an outfit and tap <b>Save to my closet</b>, or add pieces one at a time.</div>`}`;
+  $('#addI').onclick=()=>askPhoto(async(d,role)=>{const ph=await buildPhoto(d);const m=clothesMask(ph);const c=components(m,ph.w,ph.h);let idx=[];if(c.sizes.length){const big=c.sizes.indexOf(Math.max(...c.sizes));for(let i=0;i<ph.N;i++)if(c.lab[i]===big)idx.push(i)}
+    let p=idx.length>ph.N*.01?makePieceFrom(ph,idx,role):pickAt(ph,{x:.5,y:.5},role).p;if(!p){toast('Could not find the piece. Try a plainer background.');return}
+    const it={id:'i'+Date.now(),img:cropPiece(p),lab:p.lab,spread:p.spread,type:role,denim:p.denim,added:Date.now()};await Items.put(it);C.push(it);toast(`Added: ${p.d.label}`);vCloset()},'env',{title:'Add a piece',sub:'What is it? Lay it flat or hang it, then snap.',roles:ROLES});
+  main.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{await Items.del(b.dataset.del);state.closet=C.filter(i=>i.id!==b.dataset.del);vCloset()})}
 /* ---------- Dress me ---------- */
 const OCC=[['work','Work'],['casual','Casual'],['date','Date'],['church','Church'],['event','Event']];
 const WX=[['','No weather'],['hot','Hot'],['mild','Mild'],['cold','Cold'],['rain','Rain']];
@@ -448,44 +633,26 @@ function outfitTips(o,occ,wx){const ds=o.parts.map(p=>p.d),t=[];const den=ds.fin
   if(wx==='rain')t.push('Pick darker shoes you own; they hide splashes.');
   return t.slice(0,3)}
 function vDress(){const S=state.dress;
-  main.innerHTML=`<div class="card"><b>Where are you going?</b><div class="chips">${OCC.map(([k,t])=>`<span class="chip ${S.occ===k?'on':''}" data-occ="${k}">${t}</span>`).join('')}</div>
-   <b>Weather</b> <span class="note">(optional)</span><div class="chips">${WX.map(([k,t])=>`<span class="chip ${S.wx===k?'on':''}" data-wx="${k}">${t}</span>`).join('')}</div>
-   <b>Use</b><div class="chips"><span class="chip ${S.src==='closet'?'on':''}" data-src="closet">My closet (${state.closet.length})</span><span class="chip ${S.src==='snap'?'on':''}" data-src="snap">Snap 2–5 pieces now</span></div></div>
-   ${S.src==='snap'?S.snap.map((p,i)=>pieceCard(p,i,{rm:true})).join('')+(S.snap.length<5?`<button class="btn acc" id="snapP">📷 Snap ${S.snap.length?'another':'a'} piece</button>`:''):''}
+  main.innerHTML=`<h2 class="big" style="font-size:32px">Dress me</h2><p class="lede" style="font-size:14.5px">Best outfits from your own closet (${state.closet.length} pieces). Nothing to buy.</p>
+   <div class="card"><div class="sec">Where are you going?</div><div class="chips">${OCC.map(([k,t])=>`<span class="chip ${S.occ===k?'on':''}" data-occ="${k}">${t}</span>`).join('')}</div>
+   <div class="sec" style="margin-top:10px">Weather</div><div class="chips">${WX.map(([k,t])=>`<span class="chip ${S.wx===k?'on':''}" data-wx="${k}">${t}</span>`).join('')}</div></div>
    <div id="outs"></div>`;
   main.querySelectorAll('[data-occ]').forEach(c=>c.onclick=()=>{S.occ=c.dataset.occ;vDress()});
   main.querySelectorAll('[data-wx]').forEach(c=>c.onclick=()=>{S.wx=c.dataset.wx;vDress()});
-  main.querySelectorAll('[data-src]').forEach(c=>c.onclick=()=>{S.src=c.dataset.src;vDress()});
-  if(S.src==='snap'){bindPieces(S.snap,vDress);const b=$('#snapP');if(b)b.onclick=()=>askPhoto(async d=>{S.snap.push(await makePiece(d,defaultType(S.snap.length)));vDress()})}
-  const items=S.src==='closet'?state.closet:S.snap.map(p=>({id:p.id,img:p.img,lab:p.lab,spread:p.spread,type:p.type,denim:p.denim}));
-  const outs=$('#outs');const tops=items.filter(i=>i.type==='top'||i.type==='dress').length,bots=items.filter(i=>i.type==='bottom'||i.type==='dress').length;
-  if(!tops||!bots){outs.innerHTML=`<div class="card note">Need at least one top and one bottom (or a dress). ${S.src==='closet'?'Add pieces in <b>My closet</b> or switch to <b>Snap now</b>.':'Snap them and set each type.'}</div>`;return}
+  const items=state.closet;
+  const outs=$('#outs');const tops=items.filter(i=>i.type==='top'||i.type==='dress'||i.type==='layer').length,bots=items.filter(i=>i.type==='bottom'||i.type==='dress').length;
+  if(!tops||!bots){outs.innerHTML=`<div class="card note">Needs at least one top and one bottom in <b>My closet</b>. Scan an outfit and tap <b>Save to my closet</b>.</div><button class="btn acc" onclick="go('closet')">▦ Go to my closet</button>`;return}
   const ranked=rankOutfits(items,S.occ,S.wx);const fb=JSON.parse(localStorage.getItem('fb_fb')||'{}');
   outs.innerHTML=ranked.map((o,n)=>{const ds=o.parts.map(p=>p.d);const pr=ds.length>1?scorePair(ds[0],ds[1]):null;const v=o.s>=75?'match':o.s>=52?'works':'clash';
-    return `<div class="outfit" data-outfit="${n}"><div class="row" style="justify-content:space-between"><span class="rank">#${n+1} for ${S.occ}</span><span class="badge ${v}" style="font-size:12px;padding:4px 8px">${v.toUpperCase()} · ${o.s}</span></div>
+    return `<div class="outfit" data-outfit="${n}"><div class="row" style="justify-content:space-between"><span class="rank">#${n+1} for ${S.occ}</span><span class="badge ${v}">${VW[v]} · ${o.s}</span></div>
     <div class="pcs">${o.parts.map(p=>`<img src="${p.it.img}" alt="${esc(p.d.label)}">`).join('')}</div>
     <div style="font-weight:600;font-size:14.5px">${ds.map(d=>esc(d.label)).join(' + ')}</div>
     ${pr?`<div class="note" style="margin:3px 0 0">${esc(cap(character(ds[0],ds[1],pr)))}.</div>`:''}
-    <div class="tip" style="font-size:13px"><b>Make it work:</b> ${outfitTips(o,S.occ,S.wx).map(esc).join(' ')}</div>
+    <div class="tip" style="padding:10px 12px;margin:8px 0 0"><div class="sec">Make it work</div><p style="font-size:13.5px">${outfitTips(o,S.occ,S.wx).map(esc).join(' ')}</p></div>
     <div class="row" style="margin-top:8px"><span class="chip ${fb[o.key]===1?'on':''}" data-up="${n}">👍</span><span class="chip ${fb[o.key]===-1?'on':''}" data-down="${n}">👎</span></div></div>`}).join('')+
     (ranked.length&&ranked[0].s<52?`<div class="card note">Nothing scores great. Try a neutral piece you own (black, white, gray, or denim) as the bottom or layer.</div>`:'');
   const setFb=(n,v)=>{const f=JSON.parse(localStorage.getItem('fb_fb')||'{}');f[ranked[n].key]=f[ranked[n].key]===v?0:v;localStorage.setItem('fb_fb',JSON.stringify(f));vDress()};
   outs.querySelectorAll('[data-up]').forEach(c=>c.onclick=()=>setFb(+c.dataset.up,1));outs.querySelectorAll('[data-down]').forEach(c=>c.onclick=()=>setFb(+c.dataset.down,-1));
-}
-
-/* ---------- Closet ---------- */
-function vCloset(){
-  const C=state.closet;
-  main.innerHTML=`<button class="btn acc" id="addI" style="margin:6px 0 10px">📷 Add a piece</button>
-   <div class="note" style="margin-bottom:8px">Snap one item at a time (on the bed or a hanger is fine). Aim for 10–20 pieces. Everything stays on this phone.</div>
-   <div id="pending"></div>
-   <div class="grid">${C.map(it=>{const d=describe(it.lab,{type:it.type,denim:it.denim,spread:it.spread});return`<div class="it"><img src="${it.img}" alt=""><button class="x" data-del="${it.id}" aria-label="Delete">×</button><div class="lab"><span class="sw" style="background:${d.hex}"></span>${esc(d.shade)} · ${it.type}</div></div>`}).join('')}</div>
-   ${C.length?'':'<div class="card note">Your closet is empty. Add a few tops, bottoms, and shoes.</div>'}`;
-  const pend=state.pendingPiece;
-  if(pend){$('#pending').innerHTML=pieceCard(pend,0,{})+`<button class="btn" id="keep" style="margin-bottom:10px">Save to closet</button>`;bindPieces([pend],vCloset);
-    $('#keep').onclick=async()=>{await saveToCloset(pend);state.pendingPiece=null;toast('Saved');vCloset()}}
-  $('#addI').onclick=()=>askPhoto(async d=>{state.pendingPiece=await makePiece(d,'top');vCloset()});
-  main.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{await Items.del(b.dataset.del);state.closet=state.closet.filter(i=>i.id!==b.dataset.del);vCloset()});
 }
 
 /* ---------- My colors (profile) ---------- */
@@ -503,10 +670,10 @@ function seasonFrom(skin,hair){const s=lch(skin),hl=hair?hair[0]:40;const contra
 function shapeFrom(b,w,h){if(!(b>0&&w>0&&h>0))return null;if(w>=b*.95&&w>=h*.95)return'round';if(Math.abs(b-h)/h<=.05&&w<=Math.min(b,h)*.78)return'hourglass';if(h>b*1.05)return'pear';if(b>h*1.05)return'inverted triangle';return'rectangle'}
 async function vMe(){
   const pr=state.profile||{};const ph=await KV.get('profilePhoto');state.mode=state.mode||'skin';
-  main.innerHTML=`<div class="card"><b>Color palette estimate</b><div class="note">Take one full-body photo in daylight, then tap your skin (cheek), hair, and eyes. The phone samples those colors. It's an estimate, not a pro color analysis.</div>
+  main.innerHTML=`<h2 class="big" style="font-size:32px">My colors</h2><div class="card"><b>Color palette estimate</b><div class="note">Take one full-body photo in daylight, then tap your skin (cheek), hair, and eyes. The phone samples those colors. It's an estimate, not a pro color analysis.</div>
    ${ph?`<div style="position:relative;margin-top:10px"><canvas id="pc" width="300" height="400" style="width:100%;border-radius:14px;cursor:crosshair"></canvas></div>
    <div class="chips">${['skin','hair','eyes'].map(m=>`<span class="chip ${state.mode===m?'on':''}" data-mode="${m}">Tap ${m}${pr[m]?' ✓':''}</span>`).join('')}</div>`:''}
-   <button class="btn ${ph?'ghost':'acc'}" id="pp" style="margin-top:8px">📷 ${ph?'Retake photo':'Take full-body photo'}</button>
+   <button class="btn ${ph?'ghost':'acc'}" id="pp" style="margin-top:8px">📷 ${ph?'New photo':'Add a full-body photo'}</button>
    ${pr.season?`<div style="margin-top:14px"><div class="row"><b style="font-size:17px">${pr.season}</b><span class="note">estimate · ${SEASONS[pr.season].desc} · undertone ${pr.under}</span></div>
      <div class="swrow">${SEASONS[pr.season].pal.map(h=>`<div><span class="sw" style="background:${h}"></span>${esc((SHADES.find(s=>s.hex===h)||{name:''}).name)}</div>`).join('')}</div>
      <div class="note" style="margin-top:6px">Your best colors to wear near your face. The match check uses this.</div></div>`:''}
@@ -517,7 +684,7 @@ async function vMe(){
    <div class="note" style="margin-top:10px">or pick one:</div><div class="chips">${Object.keys(SHAPES).map(s=>`<span class="chip ${pr.shape===s?'on':''}" data-shape="${s}">${cap(s)}</span>`).join('')}</div>
    ${pr.shape?`<div class="tip"><b>${cap(pr.shape)}</b> (${pr.shapeSrc==='measure'?'from your measurements':'your pick'}): ${SHAPES[pr.shape]}</div>`:''}
   </div>
-  <div class="card"><b>Privacy</b><div class="note" style="margin:4px 0 10px">All photos and results are stored only on this phone (in browser storage). Nothing is uploaded or used for training. Public use is for 18+; younger people should use it with a parent's OK.</div>
+  <div class="card"><b>Privacy</b><div class="note" style="margin:4px 0 10px">All photos and results are stored only on this phone (in browser storage). Photos are never uploaded or used for training. The only download is the free on-phone clothes finder (from Google's MediaPipe), once. Public use is for 18+; younger people should use it with a parent's OK.</div>
    <button class="btn danger" id="wipe">🗑 Delete all my photos and data</button></div>`;
   const save=async()=>{state.profile=pr;await KV.set('profile',pr)};
   $('#pp').onclick=()=>askPhoto(async d=>{await KV.set('profilePhoto',d);delete pr.skin;delete pr.hair;delete pr.eyes;delete pr.season;state.mode='skin';await save();vMe()},'user');
@@ -532,15 +699,19 @@ async function vMe(){
       state.mode=state.mode==='skin'?'hair':state.mode==='hair'?'eyes':'eyes';await save();vMe()}}
 }
 
-/* ============== boot ============== */
+/* ============== router & boot ============== */
+const TITLES={home:'Fit Bounty',scan:'Shade check',closet:'Closet',dress:'Dress me',me:'My colors'};
+function render(){const v=state.view;$('#title').textContent=TITLES[v]||'Fit Bounty';if(v==='home')vHome();else if(v==='scan')vScan();else if(v==='closet')vCloset();else if(v==='dress')vDress();else if(v==='me')vMe()}
+function go(v){state.view=v;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.go===v||(v==='scan'&&b.dataset.go==='home')));$('#back').style.display=v==='home'?'none':'block';render();main.scrollTop=0}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.go));$('#back').onclick=()=>go('home');
 (async()=>{
-  const mf={name:'Fit Bounty (working title)',short_name:'Fit Bounty',start_url:location.href.split('#')[0],display:'standalone',background_color:'#f6f4f0',theme_color:'#16142a',icons:[{src:document.querySelector('link[rel=icon]').href,sizes:'any',type:'image/svg+xml'}]};
+  const mf={name:'Fit Bounty (working title)',short_name:'Fit Bounty',start_url:location.href.split('#')[0],display:'standalone',background_color:'#0a0a0c',theme_color:'#0a0a0c',icons:[{src:document.querySelector('link[rel=icon]').href,sizes:'any',type:'image/svg+xml'}]};
   $('#mf').href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(mf));
   try{state.closet=(await Items.all())||[];state.profile=(await KV.get('profile'))||null}catch(e){state.closet=[]}
   render();
 })();
-/* test hook (no network, no data): lets the headless test call the same color engine */
-window.FB={describe,scorePair,character,rgb2lab,samplePiece,loadImg,matchResult};
+/* test hooks (no network, no data) */
+window.FB={describe,scorePair,character,rgb2lab,hex2rgb,buildPhoto,detectPieces,pickAt,matchResult,tipsFor,state,startScan,setWhiteAt,redescribe,loadSegmenter};
 </script>
 </body>
 </html>
